@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://rfwo5epexgfx"]
+
+[ext_resource type="Script" uid="uid://cu01nwimdwx5j" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Shader" uid="uid://bt5tjiqs1u2lq" path="res://shaders/player_color.gdshader" id="3_player_color"]
+[ext_resource type="Texture2D" uid="uid://bidjyo6jw2vve" path="res://Assets/2D-Pixel-Art-Character/Katana Attack-Sheathe/player katana attack-sheathe 80x64.png" id="3_qhqgy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_player_color"]
+shader = ExtResource("3_player_color")
+shader_parameter/player_color = Color(0.2, 0.65, 1, 1)
+shader_parameter/color_strength = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ptkwr"]
+size = Vector2(18, 29)
+
+[sub_resource type="Animation" id="Animation_g2els"]
+resource_name = "idle"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qhqgy"]
+_data = {
+&"idle": SubResource("Animation_g2els")
+}
+
+[node name="Player" type="CharacterBody2D" unique_id=81952422]
+script = ExtResource("1_g2els")
+
+[node name="SpriteModel" type="Sprite2D" parent="." unique_id=830415816]
+material = SubResource("ShaderMaterial_player_color")
+texture = ExtResource("3_qhqgy")
+hframes = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1075599244]
+z_index = -10
+position = Vector2(-1, 1.5)
+shape = SubResource("RectangleShape2D_ptkwr")
+debug_color = Color(0.9965336, 0, 0.1937086, 0.41960785)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1726182693]
+libraries/ = SubResource("AnimationLibrary_qhqgy")
