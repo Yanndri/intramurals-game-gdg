@@ -8,8 +8,8 @@ position = Vector2(1, 1)
 
 [node name="Grassland_Arena_1" parent="." unique_id=2103193710 instance=ExtResource("1_0wfyh")]
 
-[node name="Player" parent="." unique_id=81952422 instance=ExtResource("2_sugp2")]
-position = Vector2(-122, -36)
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=248387208]
 zoom = Vector2(1.84, 1.84)
+
+[node name="Player" parent="." unique_id=982433373 instance=ExtResource("2_sugp2")]
+position = Vector2(-118, -34)
