@@ -2,7 +2,7 @@ extends Control
 
 @export_file("*.tscn") var game_scene_path := "res://scenes/player.tscn"
 
-@onready var play_button: Button = $Center/MenuCard/Margin/Menu/PLAY/PlayButton
+@onready var play_button: Button = $Center/MenuCard/Margin/Menu/PlayButton
 @onready var status: Label = $Center/MenuCard/Margin/Menu/Status
 
 
