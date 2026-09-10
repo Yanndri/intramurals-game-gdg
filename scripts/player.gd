@@ -11,9 +11,12 @@ const ALL_WORLD_MASK := TILEMAP_MASK | STATIC_PLATFORM_MASK
 @export var drop_through_duration := 0.25
 
 @onready var platform_detector: RayCast2D = $PlatformDetector
+@onready var sprite_model: Sprite2D = $SpriteModel
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 var drop_through_time_left := 0.0
+var was_on_floor := false
 
 
 func _physics_process(delta: float) -> void:
@@ -38,3 +41,21 @@ func _physics_process(delta: float) -> void:
 			collision_mask = ALL_WORLD_MASK
 
 	move_and_slide()
+	_update_animation(direction)
+	was_on_floor = is_on_floor()
+
+
+func _update_animation(direction: float) -> void:
+	if direction != 0.0:
+		sprite_model.flip_h = direction < 0.0
+
+	var animation_name := &"player_idle"
+	if not is_on_floor():
+		animation_name = &"player_jump"
+	elif not was_on_floor and animation_player.has_animation(&"player_land"):
+		animation_name = &"player_land"
+	elif direction != 0.0:
+		animation_name = &"player_run"
+
+	if animation_player.has_animation(animation_name) and animation_player.current_animation != animation_name:
+		animation_player.play(animation_name)

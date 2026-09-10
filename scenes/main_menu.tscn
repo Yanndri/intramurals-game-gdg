@@ -63,6 +63,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_menu")
+game_scene_path = "uid://ymj7r4l0xdft"
 
 [node name="Background" type="TextureRect" parent="." unique_id=1285415486]
 layout_mode = 1
