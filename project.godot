@@ -62,6 +62,13 @@ player1right={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="TileMap Solid"
+2d_physics/layer_2="TileMap One-Way"
+2d_physics/layer_3="StaticPlatforms"
+2d_physics/layer_4="Test Player"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

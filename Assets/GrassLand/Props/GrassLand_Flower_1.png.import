@@ -2,13 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<<< HEAD:Assets/GrassLand/Props/GrassLand_Flower_1.png.import
 uid="uid://dl8s6doldp7cp"
 path="res://.godot/imported/GrassLand_Flower_1.png-04e711eb401617c98b05711996f08eb0.ctex"
-========
-uid="uid://djjexppur8qe1"
-path="res://.godot/imported/Tiles.png-c82815a98b255f2da804452d4aee53ad.ctex"
->>>>>>>> 740ace34a4b4718ad9e699c0fa7bdcafc14af539:Assets/The 5 Levels/Graveyard/Final/Tiles.png.import
 metadata={
 "vram_texture": false
 }
