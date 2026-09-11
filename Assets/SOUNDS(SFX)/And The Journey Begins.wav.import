@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://sw8ia7fv322f"
+path="res://.godot/imported/And The Journey Begins.wav-155486c6a8c5fa509de2cf74524f3615.sample"
+
+[deps]
+
+source_file="res://Assets/SOUNDS(SFX)/And The Journey Begins.wav"
+dest_files=["res://.godot/imported/And The Journey Begins.wav-155486c6a8c5fa509de2cf74524f3615.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

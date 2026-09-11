@@ -15,6 +15,11 @@ func _on_play_button_pressed() -> void:
 		status.text = "Set a gameplay scene on the Main Menu node to start the game."
 		return
 
+	var click_sound := play_button.get_node("click") as AudioStreamPlayer
+	if click_sound:
+		click_sound.play()
+		await click_sound.finished
+
 	get_tree().change_scene_to_file(game_scene_path)
 
 
