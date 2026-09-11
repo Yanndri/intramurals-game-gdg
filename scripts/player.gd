@@ -10,13 +10,28 @@ const ALL_WORLD_MASK := TILEMAP_MASK | STATIC_PLATFORM_MASK
 @export var jump_velocity := -340.0
 @export var drop_through_duration := 0.25
 
+@export var footstep_sound: AudioStream
+@export var landing_stream: AudioStream
+
 @onready var platform_detector: RayCast2D = $PlatformDetector
 @onready var sprite_model: Sprite2D = $SpriteModel
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var footsteps: AudioStreamPlayer = $Footsteps
+@onready var landing_sound: AudioStreamPlayer = $"Landing sound"
 
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 var drop_through_time_left := 0.0
 var was_on_floor := false
+
+var footstep_interval := 0.35
+var footstep_timer := 0.0
+
+
+func _ready() -> void:
+	if footstep_sound:
+		footsteps.stream = footstep_sound
+	if landing_stream:
+		landing_sound.stream = landing_stream
 
 
 func _physics_process(delta: float) -> void:
@@ -41,7 +56,12 @@ func _physics_process(delta: float) -> void:
 			collision_mask = ALL_WORLD_MASK
 
 	move_and_slide()
+
+	if is_on_floor() and not was_on_floor:
+		landing_sound.play()
+
 	_update_animation(direction)
+	_update_footsteps(delta, direction)
 	was_on_floor = is_on_floor()
 
 
@@ -59,3 +79,19 @@ func _update_animation(direction: float) -> void:
 
 	if animation_player.has_animation(animation_name) and animation_player.current_animation != animation_name:
 		animation_player.play(animation_name)
+
+
+func _update_footsteps(delta: float, direction: float) -> void:
+	if is_on_floor() and direction != 0.0:
+		footstep_timer -= delta
+		if footstep_timer <= 0.0:
+			footsteps.play()
+			footstep_timer = footstep_interval
+	else:
+		footstep_timer = 0.0
+
+
+func _play_footstep_clip() -> void:
+	footsteps.play(0.1)          # start position in seconds
+	await get_tree().create_timer(0.2).timeout   # how long to let it play
+	footsteps.stop()
