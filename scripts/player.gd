@@ -7,7 +7,7 @@ const STATIC_PLATFORM_MASK := 0b100
 const ALL_WORLD_MASK := TILEMAP_MASK | STATIC_PLATFORM_MASK
 
 @export var move_speed := 180.0
-@export var jump_velocity := -340.0
+@export var jump_velocity := -390.0
 @export var drop_through_duration := 0.25
 
 @onready var platform_detector: RayCast2D = $PlatformDetector

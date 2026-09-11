@@ -1,17 +1,17 @@
 [gd_scene format=3 uid="uid://1jr0birl4yda"]
 
-[ext_resource type="Texture2D" uid="uid://ywnes31s1ac5" path="res://Assets/The 5 Levels/GrassLand/Terrain/Grasslands_TileSheet.png" id="1_m6gve"]
-[ext_resource type="Texture2D" uid="uid://dcjqkm3he0ywb" path="res://Assets/The 5 Levels/GrassLand/Props/GrassLand_Bush.png" id="2_1d4r4"]
-[ext_resource type="Texture2D" uid="uid://dl8s6doldp7cp" path="res://Assets/The 5 Levels/GrassLand/Props/GrassLand_Flower_1.png" id="3_lhgml"]
-[ext_resource type="Texture2D" uid="uid://cuqapu74dtxhy" path="res://Assets/The 5 Levels/GrassLand/Props/GrassLand_Flower_2.png" id="4_cn085"]
-[ext_resource type="Texture2D" uid="uid://d1sfkdhjys01j" path="res://Assets/The 5 Levels/GrassLand/Props/GrassLand_Flower_3.png" id="5_0b7pt"]
-[ext_resource type="Texture2D" uid="uid://cjptrymo5nrsb" path="res://Assets/The 5 Levels/GrassLand/Props/GrassLand_ChoppedTree.png" id="6_ls0ei"]
-[ext_resource type="Texture2D" uid="uid://cbq640v5w54vt" path="res://Assets/The 5 Levels/GrassLand/Props/GrassLand_LoneTrunk.png" id="7_vs6mw"]
-[ext_resource type="Texture2D" uid="uid://iahdc00k5qr8" path="res://Assets/The 5 Levels/GrassLand/Props/GrassLand_TallGrass_1.png" id="8_f03eo"]
-[ext_resource type="Texture2D" uid="uid://boevnivqd67k8" path="res://Assets/The 5 Levels/GrassLand/Props/GrassLand_TallGrass_2.png" id="9_pdydq"]
-[ext_resource type="Texture2D" uid="uid://co12uiu2wn0il" path="res://Assets/The 5 Levels/GrassLand/Props/GrassLand_Tree.png" id="10_rq6dn"]
-[ext_resource type="Texture2D" uid="uid://b3yy5j0x7abo7" path="res://Assets/The 5 Levels/GrassLand/Background/GrassLand_Background_Guide.png" id="11_1max7"]
-[ext_resource type="Texture2D" uid="uid://cafubgk42yae2" path="res://Assets/The 5 Levels/GrassLand/Props/Animated/GrassLand_Butterfly.png" id="12_lhgml"]
+[ext_resource type="Texture2D" uid="uid://wyqk6qejqpop" path="res://Assets/The 5 Levels/GrassLand/Terrain/Grasslands_TileSheet.png" id="1_m6gve"]
+[ext_resource type="Texture2D" uid="uid://dcjqkm3he0ywb" path="res://Assets/GrassLand/Props/GrassLand_Bush.png" id="2_1d4r4"]
+[ext_resource type="Texture2D" uid="uid://dl8s6doldp7cp" path="res://Assets/GrassLand/Props/GrassLand_Flower_1.png" id="3_lhgml"]
+[ext_resource type="Texture2D" uid="uid://cuqapu74dtxhy" path="res://Assets/GrassLand/Props/GrassLand_Flower_2.png" id="4_cn085"]
+[ext_resource type="Texture2D" uid="uid://d1sfkdhjys01j" path="res://Assets/GrassLand/Props/GrassLand_Flower_3.png" id="5_0b7pt"]
+[ext_resource type="Texture2D" uid="uid://cjptrymo5nrsb" path="res://Assets/GrassLand/Props/GrassLand_ChoppedTree.png" id="6_ls0ei"]
+[ext_resource type="Texture2D" uid="uid://cbq640v5w54vt" path="res://Assets/GrassLand/Props/GrassLand_LoneTrunk.png" id="7_vs6mw"]
+[ext_resource type="Texture2D" uid="uid://iahdc00k5qr8" path="res://Assets/GrassLand/Props/GrassLand_TallGrass_1.png" id="8_f03eo"]
+[ext_resource type="Texture2D" uid="uid://boevnivqd67k8" path="res://Assets/GrassLand/Props/GrassLand_TallGrass_2.png" id="9_pdydq"]
+[ext_resource type="Texture2D" uid="uid://co12uiu2wn0il" path="res://Assets/GrassLand/Props/GrassLand_Tree.png" id="10_rq6dn"]
+[ext_resource type="Texture2D" uid="uid://b3yy5j0x7abo7" path="res://Assets/GrassLand/Background/GrassLand_Background_Guide.png" id="11_1max7"]
+[ext_resource type="Texture2D" uid="uid://cafubgk42yae2" path="res://Assets/GrassLand/Props/Animated/GrassLand_Butterfly.png" id="12_lhgml"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fqx6y"]
 texture = ExtResource("1_m6gve")
@@ -327,10 +327,6 @@ animations = [{
 
 [node name="Grassland_Arena_1" type="Node2D" unique_id=2103193710]
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=272256348]
-enabled = false
-zoom = Vector2(1.84, 1.84)
-
 [node name="TileMap" type="TileMap" parent="." unique_id=1793678882]
 tile_set = SubResource("TileSet_0mqah")
 format = 2
@@ -492,207 +488,207 @@ position = Vector2(-4, 6)
 scale = Vector2(1.8, 1.8)
 texture = ExtResource("11_1max7")
 
-[node name="StaticPlatforms" type="Sprite2D" parent="." unique_id=1948934645]
+[node name="GL_StaticPlatforms" type="Sprite2D" parent="." unique_id=1948934645]
 
-[node name="GrassPlatform1" type="StaticBody2D" parent="StaticPlatforms" unique_id=1123803620]
+[node name="GrassPlatform1" type="StaticBody2D" parent="GL_StaticPlatforms" unique_id=1123803620]
 position = Vector2(1, 4)
 scale = Vector2(10.000001, 1)
 collision_layer = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticPlatforms/GrassPlatform1" unique_id=588194935]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GL_StaticPlatforms/GrassPlatform1" unique_id=588194935]
 shape = SubResource("RectangleShape2D_y26rt")
 one_way_collision = true
 
-[node name="GrassPlatform2" type="StaticBody2D" parent="StaticPlatforms" unique_id=131337632]
+[node name="GrassPlatform2" type="StaticBody2D" parent="GL_StaticPlatforms" unique_id=131337632]
 position = Vector2(-257, -44)
 scale = Vector2(4.8000026, 1)
 collision_layer = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticPlatforms/GrassPlatform2" unique_id=1608993707]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GL_StaticPlatforms/GrassPlatform2" unique_id=1608993707]
 shape = SubResource("RectangleShape2D_y26rt")
 one_way_collision = true
 
-[node name="GrassPlatform3" type="StaticBody2D" parent="StaticPlatforms" unique_id=192930264]
+[node name="GrassPlatform3" type="StaticBody2D" parent="GL_StaticPlatforms" unique_id=192930264]
 position = Vector2(257, -44)
 scale = Vector2(4.8000026, 1)
 collision_layer = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticPlatforms/GrassPlatform3" unique_id=2058900673]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GL_StaticPlatforms/GrassPlatform3" unique_id=2058900673]
 shape = SubResource("RectangleShape2D_y26rt")
 one_way_collision = true
 
-[node name="GrassPlatform4" type="StaticBody2D" parent="StaticPlatforms" unique_id=2144607864]
+[node name="GrassPlatform4" type="StaticBody2D" parent="GL_StaticPlatforms" unique_id=2144607864]
 position = Vector2(75.00001, -43)
 scale = Vector2(0.84000325, 1)
 collision_layer = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticPlatforms/GrassPlatform4" unique_id=1244946873]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GL_StaticPlatforms/GrassPlatform4" unique_id=1244946873]
 position = Vector2(-9.082577e-06, -0.99999994)
 shape = SubResource("RectangleShape2D_y26rt")
 one_way_collision = true
 
-[node name="GrassPlatform5" type="StaticBody2D" parent="StaticPlatforms" unique_id=824842596]
+[node name="GrassPlatform5" type="StaticBody2D" parent="GL_StaticPlatforms" unique_id=824842596]
 position = Vector2(-74.00001, -43)
 scale = Vector2(0.84000325, 1)
 collision_layer = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticPlatforms/GrassPlatform5" unique_id=1925803148]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GL_StaticPlatforms/GrassPlatform5" unique_id=1925803148]
 position = Vector2(1.2724838, -1)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_y26rt")
 one_way_collision = true
 
-[node name="GrassPlatform6" type="StaticBody2D" parent="StaticPlatforms" unique_id=1875412303]
+[node name="GrassPlatform6" type="StaticBody2D" parent="GL_StaticPlatforms" unique_id=1875412303]
 position = Vector2(-1, -74)
 scale = Vector2(2.0898492, 1.3788211)
 collision_layer = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticPlatforms/GrassPlatform6" unique_id=27129359]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GL_StaticPlatforms/GrassPlatform6" unique_id=27129359]
 position = Vector2(0.7177547, 0.093429565)
 shape = SubResource("RectangleShape2D_y26rt")
 one_way_collision = true
 
-[node name="GrassLedge1" type="StaticBody2D" parent="StaticPlatforms" unique_id=45226395]
+[node name="GrassLedge1" type="StaticBody2D" parent="GL_StaticPlatforms" unique_id=45226395]
 position = Vector2(34, 47)
 collision_layer = 4
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticPlatforms/GrassLedge1" unique_id=1632264634]
+[node name="Sprite2D" type="Sprite2D" parent="GL_StaticPlatforms/GrassLedge1" unique_id=1632264634]
 texture = ExtResource("1_m6gve")
 region_enabled = true
 region_rect = Rect2(216, 96, 32, 9)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticPlatforms/GrassLedge1" unique_id=2029866782]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GL_StaticPlatforms/GrassLedge1" unique_id=2029866782]
 shape = SubResource("RectangleShape2D_noqhn")
 one_way_collision = true
 
-[node name="GrassLedge2" type="StaticBody2D" parent="StaticPlatforms" unique_id=1321437491]
+[node name="GrassLedge2" type="StaticBody2D" parent="GL_StaticPlatforms" unique_id=1321437491]
 position = Vector2(16, 101)
 collision_layer = 4
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticPlatforms/GrassLedge2" unique_id=1427501967]
+[node name="Sprite2D" type="Sprite2D" parent="GL_StaticPlatforms/GrassLedge2" unique_id=1427501967]
 texture = ExtResource("1_m6gve")
 region_enabled = true
 region_rect = Rect2(216, 96, 32, 9)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticPlatforms/GrassLedge2" unique_id=1280972026]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GL_StaticPlatforms/GrassLedge2" unique_id=1280972026]
 shape = SubResource("RectangleShape2D_noqhn")
 one_way_collision = true
 
-[node name="GrassLedge3" type="StaticBody2D" parent="StaticPlatforms" unique_id=1685453465]
+[node name="GrassLedge3" type="StaticBody2D" parent="GL_StaticPlatforms" unique_id=1685453465]
 position = Vector2(-42, 61)
 collision_layer = 4
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticPlatforms/GrassLedge3" unique_id=376014525]
+[node name="Sprite2D" type="Sprite2D" parent="GL_StaticPlatforms/GrassLedge3" unique_id=376014525]
 texture = ExtResource("1_m6gve")
 region_enabled = true
 region_rect = Rect2(216, 96, 32, 9)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticPlatforms/GrassLedge3" unique_id=298858005]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GL_StaticPlatforms/GrassLedge3" unique_id=298858005]
 shape = SubResource("RectangleShape2D_noqhn")
 one_way_collision = true
 
-[node name="GrassLedge4" type="StaticBody2D" parent="StaticPlatforms" unique_id=1192427955]
+[node name="GrassLedge4" type="StaticBody2D" parent="GL_StaticPlatforms" unique_id=1192427955]
 position = Vector2(-317, 46)
 collision_layer = 4
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticPlatforms/GrassLedge4" unique_id=80232640]
+[node name="Sprite2D" type="Sprite2D" parent="GL_StaticPlatforms/GrassLedge4" unique_id=80232640]
 texture = ExtResource("1_m6gve")
 region_enabled = true
 region_rect = Rect2(216, 96, 32, 9)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticPlatforms/GrassLedge4" unique_id=211218800]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GL_StaticPlatforms/GrassLedge4" unique_id=211218800]
 shape = SubResource("RectangleShape2D_noqhn")
 one_way_collision = true
 
-[node name="GrassLedge5" type="StaticBody2D" parent="StaticPlatforms" unique_id=1713656556]
+[node name="GrassLedge5" type="StaticBody2D" parent="GL_StaticPlatforms" unique_id=1713656556]
 position = Vector2(-304, -3)
 collision_layer = 4
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticPlatforms/GrassLedge5" unique_id=1415339243]
+[node name="Sprite2D" type="Sprite2D" parent="GL_StaticPlatforms/GrassLedge5" unique_id=1415339243]
 texture = ExtResource("1_m6gve")
 region_enabled = true
 region_rect = Rect2(216, 96, 32, 9)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticPlatforms/GrassLedge5" unique_id=2115655469]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GL_StaticPlatforms/GrassLedge5" unique_id=2115655469]
 shape = SubResource("RectangleShape2D_noqhn")
 one_way_collision = true
 
-[node name="GrassLedge6" type="StaticBody2D" parent="StaticPlatforms" unique_id=676477427]
+[node name="GrassLedge6" type="StaticBody2D" parent="GL_StaticPlatforms" unique_id=676477427]
 position = Vector2(315, 42)
 collision_layer = 4
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticPlatforms/GrassLedge6" unique_id=487656975]
+[node name="Sprite2D" type="Sprite2D" parent="GL_StaticPlatforms/GrassLedge6" unique_id=487656975]
 texture = ExtResource("1_m6gve")
 region_enabled = true
 region_rect = Rect2(216, 96, 32, 9)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticPlatforms/GrassLedge6" unique_id=497466863]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GL_StaticPlatforms/GrassLedge6" unique_id=497466863]
 shape = SubResource("RectangleShape2D_noqhn")
 one_way_collision = true
 
-[node name="GrassLedge7" type="StaticBody2D" parent="StaticPlatforms" unique_id=1950195852]
+[node name="GrassLedge7" type="StaticBody2D" parent="GL_StaticPlatforms" unique_id=1950195852]
 position = Vector2(288, -7)
 collision_layer = 4
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticPlatforms/GrassLedge7" unique_id=1417994860]
+[node name="Sprite2D" type="Sprite2D" parent="GL_StaticPlatforms/GrassLedge7" unique_id=1417994860]
 texture = ExtResource("1_m6gve")
 region_enabled = true
 region_rect = Rect2(216, 96, 32, 9)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticPlatforms/GrassLedge7" unique_id=1745307761]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GL_StaticPlatforms/GrassLedge7" unique_id=1745307761]
 shape = SubResource("RectangleShape2D_noqhn")
 one_way_collision = true
 
-[node name="AngledLedge9" type="StaticBody2D" parent="StaticPlatforms" unique_id=1416139292]
+[node name="AngledLedge9" type="StaticBody2D" parent="GL_StaticPlatforms" unique_id=1416139292]
 position = Vector2(47.000004, -58)
 rotation = 0.7723044
 collision_layer = 4
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticPlatforms/AngledLedge9" unique_id=709152229]
+[node name="Sprite2D" type="Sprite2D" parent="GL_StaticPlatforms/AngledLedge9" unique_id=709152229]
 texture = ExtResource("1_m6gve")
 region_enabled = true
 region_rect = Rect2(216, 96, 32, 9)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticPlatforms/AngledLedge9" unique_id=13697997]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GL_StaticPlatforms/AngledLedge9" unique_id=13697997]
 position = Vector2(1.4140886, 0.018520787)
 scale = Vector2(1.8521603, 1)
 shape = SubResource("RectangleShape2D_noqhn")
 one_way_collision = true
 
-[node name="AngledLedge8" type="StaticBody2D" parent="StaticPlatforms" unique_id=134539667]
+[node name="AngledLedge8" type="StaticBody2D" parent="GL_StaticPlatforms" unique_id=134539667]
 position = Vector2(-46.999996, -55.999996)
 rotation = -0.8140012
 collision_layer = 4
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticPlatforms/AngledLedge8" unique_id=1019387024]
+[node name="Sprite2D" type="Sprite2D" parent="GL_StaticPlatforms/AngledLedge8" unique_id=1019387024]
 texture = ExtResource("1_m6gve")
 region_enabled = true
 region_rect = Rect2(216, 96, 32, 9)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticPlatforms/AngledLedge8" unique_id=2065351899]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GL_StaticPlatforms/AngledLedge8" unique_id=2065351899]
 position = Vector2(1.16469, 0.21403503)
 scale = Vector2(1.8521602, 1)
 shape = SubResource("RectangleShape2D_noqhn")
 one_way_collision = true
 
-[node name="ArenaBorder_Bottom" type="StaticBody2D" parent="." unique_id=1758450525]
+[node name="GL_ArenaBorder_Bottom" type="StaticBody2D" parent="." unique_id=1758450525]
 position = Vector2(0, 194)
 
-[node name="BottomBorder" type="CollisionShape2D" parent="ArenaBorder_Bottom" unique_id=768973853]
+[node name="BottomBorder" type="CollisionShape2D" parent="GL_ArenaBorder_Bottom" unique_id=768973853]
 shape = SubResource("WorldBoundaryShape2D_noqhn")
 
-[node name="ArenaBorder_Right" type="StaticBody2D" parent="." unique_id=1787195871]
+[node name="GL_ArenaBorder_Right" type="StaticBody2D" parent="." unique_id=1787195871]
 position = Vector2(5, 195)
 
-[node name="RightBorder" type="CollisionShape2D" parent="ArenaBorder_Right" unique_id=1533272067]
+[node name="RightBorder" type="CollisionShape2D" parent="GL_ArenaBorder_Right" unique_id=1533272067]
 position = Vector2(318, -196)
 rotation = -1.5707964
 shape = SubResource("WorldBoundaryShape2D_bfv3y")
 
-[node name="ArenaBorder_Left" type="StaticBody2D" parent="." unique_id=561283216]
+[node name="GL_ArenaBorder_Left" type="StaticBody2D" parent="." unique_id=561283216]
 position = Vector2(-7, 196)
 
-[node name="LeftBorder" type="CollisionShape2D" parent="ArenaBorder_Left" unique_id=230618077]
+[node name="LeftBorder" type="CollisionShape2D" parent="GL_ArenaBorder_Left" unique_id=230618077]
 position = Vector2(-317, -172)
 rotation = 1.5707964
 shape = SubResource("WorldBoundaryShape2D_cqsnw")
