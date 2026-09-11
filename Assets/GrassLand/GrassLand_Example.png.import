@@ -2,8 +2,13 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<<< HEAD:Assets/GrassLand/GrassLand_Example.png.import
 uid="uid://cat1133vh3f3h"
 path="res://.godot/imported/GrassLand_Example.png-8eaefa97b9197ef2df64778be7315e56.ctex"
+========
+uid="uid://drs075xqrbvx2"
+path="res://.godot/imported/background3.png-a893545b75946eb0e21db5d89192b46b.ctex"
+>>>>>>>> 740ace34a4b4718ad9e699c0fa7bdcafc14af539:Assets/The 5 Levels/Caves/background3.png.import
 metadata={
 "vram_texture": false
 }

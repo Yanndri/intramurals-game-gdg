@@ -2,8 +2,13 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<<< HEAD:Assets/GrassLand/Terrain/Grassland_Terrain_47Tiles.png.import
 uid="uid://cq1srnwgkebcx"
 path="res://.godot/imported/Grassland_Terrain_47Tiles.png-8bfc7da63d1f86f7143c7d8ba6af0ad5.ctex"
+========
+uid="uid://drq1ua7xijwh5"
+path="res://.godot/imported/Grassland_Terrain_47Tiles.png-83ea648150fce47d7bd3d2d6634a7635.ctex"
+>>>>>>>> 740ace34a4b4718ad9e699c0fa7bdcafc14af539:Assets/The 5 Levels/GrassLand/Terrain/Grassland_Terrain_47Tiles.png.import
 metadata={
 "vram_texture": false
 }

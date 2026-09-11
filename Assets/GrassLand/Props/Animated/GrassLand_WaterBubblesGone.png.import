@@ -2,8 +2,13 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<<< HEAD:Assets/GrassLand/Props/Animated/GrassLand_WaterBubblesGone.png.import
 uid="uid://c32r6n8s375ux"
 path="res://.godot/imported/GrassLand_WaterBubblesGone.png-564e88e92f5166e73f6a9a514d2d1c4e.ctex"
+========
+uid="uid://dvrleu7omn8pk"
+path="res://.godot/imported/GrassLand_WaterBubblesGone.png-210901c5a3dc6cd528b63aacee8047d1.ctex"
+>>>>>>>> 740ace34a4b4718ad9e699c0fa7bdcafc14af539:Assets/The 5 Levels/GrassLand/Props/Animated/GrassLand_WaterBubblesGone.png.import
 metadata={
 "vram_texture": false
 }

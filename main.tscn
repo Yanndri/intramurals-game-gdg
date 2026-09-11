@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://2enfxtguyc0w"]
+[gd_scene format=3 uid="uid://c0fuwtgttsesf"]
 
-[ext_resource type="Texture2D" uid="uid://b3yy5j0x7abo7" path="res://Assets/GrassLand/Background/GrassLand_Background_Guide.png" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://dlo380bmvlwms" path="res://Assets/GrassLand/Background/GrassLand_Background_Guide.png" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://cydqaorx1vv08" path="res://scripts/main_menu.gd" id="2_menu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card"]
@@ -36,6 +36,25 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_secondary_normal"]
+bg_color = Color(0.08, 0.23, 0.4, 0.96)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_secondary_hover"]
+bg_color = Color(0.12, 0.36, 0.6, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.7, 0.9, 1, 0.9)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_exit_normal"]
 bg_color = Color(0.48, 0.12, 0.19, 0.96)
 corner_radius_top_left = 10
@@ -55,7 +74,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[node name="main_menu" type="Control" unique_id=414991186]
+[node name="MainMenu" type="Control" unique_id=414991186]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -140,6 +159,24 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_play_normal")
 theme_override_styles/hover = SubResource("StyleBoxFlat_play_hover")
 text = "PLAY"
 
+[node name="InstructionsButton" type="Button" parent="Center/MenuCard/Margin/Menu" unique_id=1036264761]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.96, 1, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_secondary_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_secondary_hover")
+text = "HOW TO PLAY"
+
+[node name="CreditsButton" type="Button" parent="Center/MenuCard/Margin/Menu" unique_id=929126906]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.96, 1, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_secondary_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_secondary_hover")
+text = "CREDITS"
+
 [node name="ExitButton" type="Button" parent="Center/MenuCard/Margin/Menu" unique_id=1785236571]
 custom_minimum_size = Vector2(0, 56)
 layout_mode = 2
@@ -157,4 +194,6 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [connection signal="pressed" from="Center/MenuCard/Margin/Menu/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Center/MenuCard/Margin/Menu/InstructionsButton" to="." method="_on_instructions_button_pressed"]
+[connection signal="pressed" from="Center/MenuCard/Margin/Menu/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="Center/MenuCard/Margin/Menu/ExitButton" to="." method="_on_exit_button_pressed"]

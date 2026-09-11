@@ -2,8 +2,13 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<<< HEAD:Assets/GrassLand/Props/Animated/GrassLand_WaterSurfaceAnim.png.import
 uid="uid://b17hg2btx4ne7"
 path="res://.godot/imported/GrassLand_WaterSurfaceAnim.png-dcda7ca19552322eb7d6644061745525.ctex"
+========
+uid="uid://cqq0jfvamlje5"
+path="res://.godot/imported/GrassLand_WaterSurfaceAnim.png-541be8301dbbaa24b4f040b23adb0cb0.ctex"
+>>>>>>>> 740ace34a4b4718ad9e699c0fa7bdcafc14af539:Assets/The 5 Levels/GrassLand/Props/Animated/GrassLand_WaterSurfaceAnim.png.import
 metadata={
 "vram_texture": false
 }

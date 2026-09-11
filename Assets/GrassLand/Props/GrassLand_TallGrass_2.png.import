@@ -2,8 +2,13 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<<< HEAD:Assets/GrassLand/Props/GrassLand_TallGrass_2.png.import
 uid="uid://boevnivqd67k8"
 path="res://.godot/imported/GrassLand_TallGrass_2.png-53c1649b01f948d85f4b296fd2456a1c.ctex"
+========
+uid="uid://bpcf3jdic51vt"
+path="res://.godot/imported/GrassLand_Entry_2.png-0e27d741da46eaec4add71abb7326254.ctex"
+>>>>>>>> 740ace34a4b4718ad9e699c0fa7bdcafc14af539:Assets/The 5 Levels/GrassLand/Props/GrassLand_Entry_2.png.import
 metadata={
 "vram_texture": false
 }
