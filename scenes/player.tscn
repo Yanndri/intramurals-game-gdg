@@ -14,26 +14,28 @@
 [ext_resource type="Texture2D" uid="uid://dcmmvcdeckcgl" path="res://Assets/2D-Pixel-Art-Character/Crouch-Walk/player crouch-walk 48x48.png" id="7_4ni07"]
 [ext_resource type="Texture2D" uid="uid://da0xrtscafrci" path="res://Assets/2D-Pixel-Art-Character/Jump/player new jump 48x48.png" id="7_f1ej7"]
 [ext_resource type="Texture2D" uid="uid://b1s2ymkhchueg" path="res://Assets/2D-Pixel-Art-Character/Death/Player Death 64x64.png" id="9_l71n6"]
-[ext_resource type="Texture2D" uid="uid://cvvbbqsv0d3sb" path="res://Assets/2D-Pixel-Art-Character/Punch/Player Punch 64x64.png" id="9_oprun"]
-[ext_resource type="Texture2D" uid="uid://djikl5lxokno5" path="res://Assets/2D-Pixel-Art-Character/Punch Cross/Player Punch Cross 64x64.png" id="10_a8ls1"]
-[ext_resource type="Texture2D" uid="uid://c8symktj640x5" path="res://Assets/2D-Pixel-Art-Character/Punch Jab/Player Jab 48x48.png" id="11_qfm1y"]
+[ext_resource type="Texture2D" path="res://Assets/2D-Pixel-Art-Character/2 Brawler/Punch Cross/Player Punch Cross 64x64.png" id="9_oprun"]
+[ext_resource type="Texture2D" path="res://Assets/2D-Pixel-Art-Character/2 Brawler/Punch Cross/Player Punch Cross 64x64.png" id="10_a8ls1"]
+[ext_resource type="Texture2D" path="res://Assets/2D-Pixel-Art-Character/2 Brawler/Punch Jab/Player Jab 48x48.png" id="11_qfm1y"]
+[ext_resource type="Texture2D" path="res://Assets/2D-Pixel-Art-Character/2 Brawler/Brawler Idle/Player Idle 48x48.png" id="12_brawler_idle"]
 [ext_resource type="Texture2D" uid="uid://cr86ulep0jrxn" path="res://Assets/2D-Pixel-Art-Character/Run/player run 48x48.png" id="12_fulsm"]
-[ext_resource type="Texture2D" uid="uid://c36pmtkj5r6o7" path="res://Assets/2D-Pixel-Art-Character/Katana Continuous Attack/player katana continuous attack 80x64.png" id="13_ke2ow"]
-[ext_resource type="Texture2D" uid="uid://d356dc6xg5owl" path="res://Assets/2D-Pixel-Art-Character/Katana Run/player katana run 48x48.png" id="14_ujl30"]
+[ext_resource type="Texture2D" path="res://Assets/2D-Pixel-Art-Character/1 Katana/Katana Continuous Attack/player katana continuous attack 80x64.png" id="13_ke2ow"]
+[ext_resource type="Texture2D" path="res://Assets/2D-Pixel-Art-Character/1 Katana/Katana Run/player katana run 48x48.png" id="14_ujl30"]
+[ext_resource type="Texture2D" path="res://Assets/2D-Pixel-Art-Character/1 Katana/Katana Idle/Katana Idle 48x48.png" id="15_katana_idle"]
 [ext_resource type="Texture2D" uid="uid://ctrjg5sdkqpfu" path="res://Assets/2D-Pixel-Art-Character/Ledge Grab-Climb/player ledge climb 48x48.png" id="16_ke2ow"]
 [ext_resource type="Texture2D" uid="uid://bncbsahtxfego" path="res://Assets/2D-Pixel-Art-Character/Pull/Player Pull 48x48.png" id="17_ujl30"]
 [ext_resource type="Texture2D" uid="uid://c257w6ouk5g7y" path="res://Assets/2D-Pixel-Art-Character/Climb (facing side of player)/old climb/Player Side-Climb 48x48.png" id="20_31cv2"]
 [ext_resource type="Texture2D" uid="uid://mjqnkvoy5cak" path="res://Assets/2D-Pixel-Art-Character/Push/player push 48x48.png" id="21_31cv2"]
 [ext_resource type="Texture2D" uid="uid://dacdmm303ufj1" path="res://Assets/2D-Pixel-Art-Character/PushPull (idle state)/player push idle 48x48.png" id="22_pf23h"]
 [ext_resource type="Texture2D" uid="uid://bingw6k3uhrv" path="res://Assets/2D-Pixel-Art-Character/Roll/Player Roll 48x48.png" id="23_dt7fs"]
-[ext_resource type="Texture2D" uid="uid://oe5s2v6abybp" path="res://Assets/2D-Pixel-Art-Character/Shooting (two-handed)/player shoot 2H 48x48.png" id="25_jc3p3"]
-[ext_resource type="Texture2D" uid="uid://bdx6uqebsfw86" path="res://Assets/2D-Pixel-Art-Character/Shooting (running and aiming)/Player Running Aiming 48x48.png" id="26_hax0n"]
-[ext_resource type="Texture2D" uid="uid://cn51br17erkdq" path="res://Assets/2D-Pixel-Art-Character/Shooting (running and aiming)/Player Running Shooting 48x48.png" id="27_t4otl"]
+[ext_resource type="Texture2D" path="res://Assets/2D-Pixel-Art-Character/3 Bullet/Shooting (two-handed)/player shoot 2H 48x48.png" id="25_jc3p3"]
+[ext_resource type="Texture2D" path="res://Assets/2D-Pixel-Art-Character/3 Bullet/Shooting (running and aiming)/Player Running Aiming 48x48.png" id="26_hax0n"]
+[ext_resource type="Texture2D" path="res://Assets/2D-Pixel-Art-Character/3 Bullet/Shooting (running and aiming)/Player Running Shooting 48x48.png" id="27_t4otl"]
+[ext_resource type="Texture2D" path="res://Assets/2D-Pixel-Art-Character/3 Bullet/Bullet Idle/Bullet Idle 48x48.png" id="28_bullet_idle"]
 [ext_resource type="Texture2D" uid="uid://chcak8gxxgk3p" path="res://Assets/2D-Pixel-Art-Character/Slide/Player Slide 48x48.png" id="29_j2b1d"]
-[ext_resource type="Texture2D" uid="uid://d3r4ufjljux0c" path="res://Assets/2D-Pixel-Art-Character/Sword Attack/player sword atk 64x64.png" id="30_cs1tg"]
-[ext_resource type="Texture2D" uid="uid://cd48nf15ckitn" path="res://Assets/2D-Pixel-Art-Character/Sword Idle/Player Sword Idle 48x48.png" id="31_2dvfe"]
-[ext_resource type="Texture2D" uid="uid://hsqghvity6m1" path="res://Assets/2D-Pixel-Art-Character/Sword Run/Player Sword Run 48x48.png" id="32_giy8y"]
-[ext_resource type="Texture2D" uid="uid://cdtngclvv0mvx" path="res://Assets/2D-Pixel-Art-Character/Sword Stab/Player Sword Stab 96x48.png" id="33_fdfoy"]
+[ext_resource type="Texture2D" path="res://Assets/2D-Pixel-Art-Character/4 Sword/Sword Attack/player sword atk 64x64.png" id="30_cs1tg"]
+[ext_resource type="Texture2D" path="res://Assets/2D-Pixel-Art-Character/4 Sword/Sword Idle/Player Sword Idle 48x48.png" id="31_2dvfe"]
+[ext_resource type="Texture2D" path="res://Assets/2D-Pixel-Art-Character/4 Sword/Sword Run/Player Sword Run 48x48.png" id="32_giy8y"]
 [ext_resource type="Texture2D" uid="uid://bg144nwfwf7ao" path="res://Assets/2D-Pixel-Art-Character/Wall Land/player wall land 48x48.png" id="35_hhpqf"]
 [ext_resource type="Texture2D" uid="uid://b50sc44pt7e1" path="res://Assets/2D-Pixel-Art-Character/Wall Slide/player wall slide 48x48.png" id="36_g5jhy"]
 
@@ -947,7 +949,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_l71n6"]
 resource_name = "player_punch_cross"
-length = 0.7
+length = 1.0
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1000,7 +1002,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_ke2ow"]
 resource_name = "player_punch_jab"
-length = 0.7
+length = 1.0
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1265,8 +1267,9 @@ tracks/3/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
 }
 
-[sub_resource type="Animation" id="Animation_holxr"]
-resource_name = "player_shooting"
+[sub_resource type="Animation" id="Animation_shooting_two_handed"]
+resource_name = "player_shooting_two_handed"
+length = 1.0
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1535,7 +1538,6 @@ tracks/3/keys = {
 [sub_resource type="Animation" id="Animation_6e8lb"]
 resource_name = "player_sword_attack"
 length = 0.6
-loop_mode = 1
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1691,59 +1693,6 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
-}
-
-[sub_resource type="Animation" id="Animation_lxlsd"]
-resource_name = "player_sword_stab"
-length = 0.8
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteModel:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("33_fdfoy")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteModel:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [7]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("SpriteModel:vframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("SpriteModel:frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6]
 }
 
 [sub_resource type="Animation" id="Animation_ha2mi"]
@@ -1906,10 +1855,171 @@ tracks/3/keys = {
 "values": [0, 1, 2]
 }
 
+[sub_resource type="Animation" id="Animation_bullet_idle"]
+resource_name = "player_bullet_idle"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteModel:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("28_bullet_idle")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteModel:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [10]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteModel:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SpriteModel:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.90000004),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+
+[sub_resource type="Animation" id="Animation_brawler_idle"]
+resource_name = "player_brawler_idle"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteModel:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("12_brawler_idle")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteModel:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [10]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteModel:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SpriteModel:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.90000004),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+
+[sub_resource type="Animation" id="Animation_katana_idle"]
+resource_name = "player_katana_idle"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteModel:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("15_katana_idle")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteModel:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [10]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteModel:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SpriteModel:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.90000004),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jc3p3"]
 _data = {
 &"RESET": SubResource("Animation_qlg0r"),
 &"player_air_spin": SubResource("Animation_pf23h"),
+&"player_bullet_idle": SubResource("Animation_bullet_idle"),
+&"player_brawler_idle": SubResource("Animation_brawler_idle"),
 &"player_climb-back": SubResource("Animation_dt7fs"),
 &"player_crouch-idle": SubResource("Animation_wqfne"),
 &"player_crouch-walk": SubResource("Animation_wnwbv"),
@@ -1920,6 +2030,7 @@ _data = {
 &"player_jump": SubResource("Animation_i4ail"),
 &"player_katana_attack": SubResource("Animation_487ah"),
 &"player_katana_continous_attack": SubResource("Animation_md1ol"),
+&"player_katana_idle": SubResource("Animation_katana_idle"),
 &"player_katana_run": SubResource("Animation_bj30b"),
 &"player_land": SubResource("Animation_a38lo"),
 &"player_ledge_grab": SubResource("Animation_jc3p3"),
@@ -1931,7 +2042,7 @@ _data = {
 &"player_pushpull_idle": SubResource("Animation_cs1tg"),
 &"player_roll": SubResource("Animation_2dvfe"),
 &"player_run": SubResource("Animation_ujl30"),
-&"player_shooting": SubResource("Animation_holxr"),
+&"player_shooting_two_handed": SubResource("Animation_shooting_two_handed"),
 &"player_shooting_aiming": SubResource("Animation_mx1m4"),
 &"player_shooting_running": SubResource("Animation_4gjji"),
 &"player_side-climb": SubResource("Animation_hax0n"),
@@ -1939,7 +2050,6 @@ _data = {
 &"player_sword_attack": SubResource("Animation_6e8lb"),
 &"player_sword_idle": SubResource("Animation_2gdjj"),
 &"player_sword_run": SubResource("Animation_sc3ue"),
-&"player_sword_stab": SubResource("Animation_lxlsd"),
 &"player_walk": SubResource("Animation_ha2mi"),
 &"player_wall_land": SubResource("Animation_apa73"),
 &"player_wall_slide": SubResource("Animation_74r1k")

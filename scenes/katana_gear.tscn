@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpldb56ud1m5p"]
+
+[ext_resource type="Texture2D" uid="uid://c2q88xxhiro6x" path="res://Assets/Item Assets/600+ RPGAdventure Items Asset Pack/Examples/ShowCaseItems.png" id="1_5w2mt"]
+[ext_resource type="Script" path="res://scripts/floating_gear.gd" id="2_floating_gear"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_katana"]
+radius = 30.0
+
+[node name="KatanaGear" type="Area2D" unique_id=368276933]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("2_floating_gear")
+respawn_seconds = 90.0
+gear_id = &"katana"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=421071466]
+texture = ExtResource("1_5w2mt")
+region_enabled = true
+region_rect = Rect2(365, 455, 95, 94)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_katana")
+
+[node name="RespawnTimer" type="Timer" parent="."]
+one_shot = true

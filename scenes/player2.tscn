@@ -1,15 +1,15 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene format=3 uid="uid://bbq0j7orpbsxu"]
 
-[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="1_player"]
-[ext_resource type="Shader" path="res://shaders/player_color.gdshader" id="2_shader"]
+[ext_resource type="PackedScene" uid="uid://rfwo5epexgfx" path="res://scenes/player.tscn" id="1_player"]
+[ext_resource type="Shader" uid="uid://bt5tjiqs1u2lq" path="res://shaders/player_color.gdshader" id="2_shader"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_player2_red"]
 shader = ExtResource("2_shader")
 shader_parameter/player_color = Color(0.9, 0.12, 0.12, 1)
 shader_parameter/color_strength = 1.0
 
-[node name="Player2" instance=ExtResource("1_player")]
+[node name="Player2" unique_id=189999628 instance=ExtResource("1_player")]
 input_prefix = "player2"
 
-[node name="SpriteModel" parent="." index="0"]
+[node name="SpriteModel" parent="." index="0" unique_id=633950412]
 material = SubResource("ShaderMaterial_player2_red")

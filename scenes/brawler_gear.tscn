@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://qy2k6bvylie7"]
+
+[ext_resource type="Texture2D" uid="uid://c2q88xxhiro6x" path="res://Assets/Item Assets/600+ RPGAdventure Items Asset Pack/Examples/ShowCaseItems.png" id="1_bq6hx"]
+[ext_resource type="Script" uid="uid://duf5rxnnqcic0" path="res://scripts/floating_gear.gd" id="2_floating_gear"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_brawler"]
+radius = 30.0
+
+[node name="BrawlerGear" type="Area2D" unique_id=1708410055]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("2_floating_gear")
+respawn_seconds = 45.0
+gear_id = &"brawler"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1413963061]
+texture = ExtResource("1_bq6hx")
+region_enabled = true
+region_rect = Rect2(275, 185, 95, 95)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=532177165]
+shape = SubResource("CircleShape2D_brawler")
+
+[node name="RespawnTimer" type="Timer" parent="." unique_id=1108747595]
+one_shot = true

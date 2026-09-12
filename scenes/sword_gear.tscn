@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxamoxhg7hnqx"]
+
+[ext_resource type="Texture2D" uid="uid://c2q88xxhiro6x" path="res://Assets/Item Assets/600+ RPGAdventure Items Asset Pack/Examples/ShowCaseItems.png" id="1_ee0os"]
+[ext_resource type="Script" path="res://scripts/floating_gear.gd" id="2_floating_gear"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sword"]
+radius = 30.0
+
+[node name="SwordGear" type="Area2D" unique_id=143373562]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("2_floating_gear")
+respawn_seconds = 60.0
+gear_id = &"sword"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1314973774]
+texture = ExtResource("1_ee0os")
+region_enabled = true
+region_rect = Rect2(725, 545, 95, 95)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_sword")
+
+[node name="RespawnTimer" type="Timer" parent="."]
+one_shot = true

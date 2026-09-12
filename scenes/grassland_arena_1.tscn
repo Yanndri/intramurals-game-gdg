@@ -12,6 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://co12uiu2wn0il" path="res://Assets/GrassLand/Props/GrassLand_Tree.png" id="10_rq6dn"]
 [ext_resource type="Texture2D" uid="uid://b3yy5j0x7abo7" path="res://Assets/GrassLand/Background/GrassLand_Background_Guide.png" id="11_1max7"]
 [ext_resource type="Texture2D" uid="uid://cafubgk42yae2" path="res://Assets/GrassLand/Props/Animated/GrassLand_Butterfly.png" id="12_lhgml"]
+[ext_resource type="PackedScene" uid="uid://cpldb56ud1m5p" path="res://scenes/katana_gear.tscn" id="13_vs6mw"]
+[ext_resource type="PackedScene" uid="uid://bxamoxhg7hnqx" path="res://scenes/sword_gear.tscn" id="14_f03eo"]
+[ext_resource type="PackedScene" uid="uid://qy2k6bvylie7" path="res://scenes/brawler_gear.tscn" id="15_pdydq"]
+[ext_resource type="PackedScene" uid="uid://gjf6spbvwv8i" path="res://scenes/bullet_gear.tscn" id="16_rq6dn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fqx6y"]
 texture = ExtResource("1_m6gve")
@@ -760,3 +764,35 @@ position = Vector2(-236, -81)
 sprite_frames = SubResource("SpriteFrames_y26rt")
 autoplay = "default"
 frame_progress = 0.5437531
+
+[node name="KatanaGear" parent="." unique_id=368276933 instance=ExtResource("13_vs6mw")]
+position = Vector2(-74, -68)
+scale = Vector2(0.2, 0.2)
+
+[node name="KatanaGear2" parent="." unique_id=641308801 instance=ExtResource("13_vs6mw")]
+position = Vector2(104.999985, -14.000004)
+scale = Vector2(0.2, 0.2)
+
+[node name="SwordGear" parent="." unique_id=143373562 instance=ExtResource("14_f03eo")]
+position = Vector2(-305, -25)
+scale = Vector2(0.2, 0.2)
+
+[node name="SwordGear2" parent="." unique_id=185130379 instance=ExtResource("14_f03eo")]
+position = Vector2(204.99997, -75)
+scale = Vector2(0.2, 0.2)
+
+[node name="BrawlerGear" parent="." unique_id=1708410055 instance=ExtResource("15_pdydq")]
+position = Vector2(-42.000008, 40.999996)
+scale = Vector2(0.2, 0.2)
+
+[node name="BrawlerGear2" parent="." unique_id=1034351221 instance=ExtResource("15_pdydq")]
+position = Vector2(-277, 74)
+scale = Vector2(0.2, 0.2)
+
+[node name="BulletGear" parent="." unique_id=1444151374 instance=ExtResource("16_rq6dn")]
+position = Vector2(196.00002, 77)
+scale = Vector2(0.2, 0.2)
+
+[node name="BulletGear2" parent="." unique_id=1298966835 instance=ExtResource("16_rq6dn")]
+position = Vector2(286, -25.000004)
+scale = Vector2(0.2, 0.2)

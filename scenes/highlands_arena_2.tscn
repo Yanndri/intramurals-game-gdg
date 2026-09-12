@@ -2,7 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://8iqyj8d3n8uq" path="res://Assets/The 5 Levels/Highland/Tiles/Assets/Background_1.png" id="2_i61p4"]
 [ext_resource type="Texture2D" uid="uid://dg3e5tar23pr3" path="res://Assets/The 5 Levels/Highland/Tiles/Assets/Background_2.png" id="3_h50bn"]
+[ext_resource type="PackedScene" uid="uid://cpldb56ud1m5p" path="res://scenes/katana_gear.tscn" id="4_kqr71"]
 [ext_resource type="Texture2D" uid="uid://bf66dpgpykxso" path="res://Assets/The 5 Levels/Highland/Tiles/Assets/Assets.png" id="4_sgpgu"]
+[ext_resource type="PackedScene" uid="uid://bxamoxhg7hnqx" path="res://scenes/sword_gear.tscn" id="5_yyrck"]
+[ext_resource type="PackedScene" uid="uid://qy2k6bvylie7" path="res://scenes/brawler_gear.tscn" id="6_8veof"]
+[ext_resource type="PackedScene" uid="uid://gjf6spbvwv8i" path="res://scenes/bullet_gear.tscn" id="7_yn4fd"]
+[ext_resource type="Script" uid="uid://s2fiaj5l8wef" path="res://scripts/instant_death_zone.gd" id="8_bottom_death"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kqr71"]
 texture = ExtResource("4_sgpgu")
@@ -358,6 +363,9 @@ distance = 3.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xhw1t"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bottom_death"]
+size = Vector2(1000, 32)
+
 [node name="Highlands_Arena_2" type="Node2D" unique_id=957635518]
 
 [node name="TileMap" type="TileMap" parent="." unique_id=895735168]
@@ -711,3 +719,45 @@ position = Vector2(-7, 196)
 position = Vector2(-314, -172)
 rotation = 1.5707964
 shape = SubResource("WorldBoundaryShape2D_xhw1t")
+
+[node name="HL_ArenaBorder_Bottom" type="Area2D" parent="." unique_id=2140312202]
+position = Vector2(0, 194)
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("8_bottom_death")
+
+[node name="BottomBorder" type="CollisionShape2D" parent="HL_ArenaBorder_Bottom" unique_id=972558525]
+position = Vector2(0, 16)
+shape = SubResource("RectangleShape2D_bottom_death")
+
+[node name="KatanaGear3" parent="." unique_id=368276933 instance=ExtResource("4_kqr71")]
+position = Vector2(-193, -124)
+scale = Vector2(0.2, 0.2)
+
+[node name="KatanaGear4" parent="." unique_id=1253089919 instance=ExtResource("4_kqr71")]
+position = Vector2(186, -3.000001)
+scale = Vector2(0.2, 0.2)
+
+[node name="SwordGear3" parent="." unique_id=143373562 instance=ExtResource("5_yyrck")]
+position = Vector2(-273, 29.999996)
+scale = Vector2(0.2, 0.2)
+
+[node name="SwordGear4" parent="." unique_id=1335174332 instance=ExtResource("5_yyrck")]
+position = Vector2(37.000015, -147)
+scale = Vector2(0.2, 0.2)
+
+[node name="BrawlerGear3" parent="." unique_id=1708410055 instance=ExtResource("6_8veof")]
+position = Vector2(-227, -51.999996)
+scale = Vector2(0.2, 0.2)
+
+[node name="BrawlerGear4" parent="." unique_id=793171057 instance=ExtResource("6_8veof")]
+position = Vector2(171, -171)
+scale = Vector2(0.2, 0.2)
+
+[node name="BulletGear3" parent="." unique_id=1444151374 instance=ExtResource("7_yn4fd")]
+position = Vector2(-299, -124.000015)
+scale = Vector2(0.2, 0.2)
+
+[node name="BulletGear4" parent="." unique_id=323527917 instance=ExtResource("7_yn4fd")]
+position = Vector2(157, 159.99998)
+scale = Vector2(0.2, 0.2)

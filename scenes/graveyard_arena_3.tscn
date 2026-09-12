@@ -7,6 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://dx8eguvgsart6" path="res://Assets/The 5 Levels/Graveyard/Final/Grass_background_1.png" id="6_bt154"]
 [ext_resource type="Texture2D" uid="uid://dwgrpxcm7rnc3" path="res://Assets/The 5 Levels/Graveyard/Final/Background_1.png" id="6_o2bsn"]
 [ext_resource type="Texture2D" uid="uid://dwokvfy4y0wrn" path="res://Assets/The 5 Levels/Graveyard/Final/Grass_background_2.png" id="7_4u6il"]
+[ext_resource type="PackedScene" uid="uid://cpldb56ud1m5p" path="res://scenes/katana_gear.tscn" id="8_ylh17"]
+[ext_resource type="PackedScene" uid="uid://bxamoxhg7hnqx" path="res://scenes/sword_gear.tscn" id="9_a11i3"]
+[ext_resource type="PackedScene" uid="uid://qy2k6bvylie7" path="res://scenes/brawler_gear.tscn" id="10_wxsfm"]
+[ext_resource type="PackedScene" uid="uid://gjf6spbvwv8i" path="res://scenes/bullet_gear.tscn" id="11_l4dep"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t485d"]
 texture = ExtResource("1_maxtu")
@@ -747,3 +751,35 @@ position = Vector2(-7, 196)
 position = Vector2(-317, -172)
 rotation = 1.5707964
 shape = SubResource("WorldBoundaryShape2D_p8bvp")
+
+[node name="KatanaGear5" parent="." unique_id=368276933 instance=ExtResource("8_ylh17")]
+position = Vector2(-19.000015, -102)
+scale = Vector2(0.2, 0.2)
+
+[node name="KatanaGear6" parent="." unique_id=221536683 instance=ExtResource("8_ylh17")]
+position = Vector2(288, -8.000001)
+scale = Vector2(0.2, 0.2)
+
+[node name="SwordGear5" parent="." unique_id=143373562 instance=ExtResource("9_a11i3")]
+position = Vector2(-302, 54)
+scale = Vector2(0.2, 0.2)
+
+[node name="SwordGear6" parent="." unique_id=116138168 instance=ExtResource("9_a11i3")]
+position = Vector2(-50.999992, 117.99997)
+scale = Vector2(0.2, 0.2)
+
+[node name="BrawlerGear5" parent="." unique_id=1708410055 instance=ExtResource("10_wxsfm")]
+position = Vector2(-143, -39.000004)
+scale = Vector2(0.2, 0.2)
+
+[node name="BrawlerGear6" parent="." unique_id=2018676483 instance=ExtResource("10_wxsfm")]
+position = Vector2(157, -86.00001)
+scale = Vector2(0.2, 0.2)
+
+[node name="BulletGear5" parent="." unique_id=1444151374 instance=ExtResource("11_l4dep")]
+position = Vector2(222.99994, -163.99998)
+scale = Vector2(0.2, 0.2)
+
+[node name="BulletGear6" parent="." unique_id=1715853668 instance=ExtResource("11_l4dep")]
+position = Vector2(-302.99997, -163.99995)
+scale = Vector2(0.2, 0.2)
