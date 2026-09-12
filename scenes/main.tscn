@@ -1,14 +1,107 @@
 [gd_scene format=3 uid="uid://ymj7r4l0xdft"]
 
-[ext_resource type="PackedScene" uid="uid://bnafruhqctdxy" path="res://scenes/graveyard_arena_3.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://1jr0birl4yda" path="res://scenes/grassland_arena_1.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://rfwo5epexgfx" path="res://scenes/player.tscn" id="2_sugp2"]
+[ext_resource type="PackedScene" path="res://scenes/game_manager.tscn" id="2_tefeu"]
+[ext_resource type="PackedScene" uid="uid://kbq8cj435nlt" path="res://scenes/player2.tscn" id="3_player2"]
+[ext_resource type="Shader" uid="uid://bt5tjiqs1u2lq" path="res://shaders/player_color.gdshader" id="5_color_shader"]
+[ext_resource type="Script" uid="uid://2astyqfutmxa" path="res://scripts/main.gd" id="7_main_script"]
+[ext_resource type="FontFile" uid="uid://y427wmo3m62u" path="res://Assets/Game Font/BoldPixels.ttf" id="10_game_font"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_health_blue"]
+shader = ExtResource("5_color_shader")
+shader_parameter/player_color = Color(0.2, 0.55, 1, 1)
+shader_parameter/color_strength = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_health_red"]
+shader = ExtResource("5_color_shader")
+shader_parameter/player_color = Color(0.95, 0.12, 0.12, 1)
+shader_parameter/color_strength = 1.0
 
 [node name="Main" type="Node2D" unique_id=1195741709]
+script = ExtResource("7_main_script")
+
+[node name="GameManager" parent="." unique_id=1019976142 instance=ExtResource("2_tefeu")]
+round_scene = ExtResource("2_0wfyh")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=248387208]
 zoom = Vector2(1.51, 1.54)
 
-[node name="Graveyard_Arena_3" parent="." unique_id=730693493 instance=ExtResource("1_o5qli")]
-
 [node name="Player" parent="." unique_id=982433373 instance=ExtResource("2_sugp2")]
-position = Vector2(-142, 99)
+position = Vector2(-102, 60)
+
+[node name="Player2" parent="." unique_id=234439602 instance=ExtResource("3_player2")]
+position = Vector2(102, 59)
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=50062272]
+layer = 10
+
+[node name="Player1HealthLabel" type="Label" parent="HUD" unique_id=300632334]
+offset_left = -405.0
+offset_top = -331.0
+offset_right = -205.0
+offset_bottom = -308.0
+theme_override_colors/font_color = Color(0.5, 0.75, 1, 1)
+theme_override_fonts/font = ExtResource("10_game_font")
+theme_override_font_sizes/font_size = 18
+text = "P1"
+horizontal_alignment = 1
+
+[node name="Player1Health" type="TextureProgressBar" parent="HUD" unique_id=758546582]
+z_index = 5
+material = SubResource("ShaderMaterial_health_blue")
+offset_left = -433.0
+offset_top = -325.0
+offset_right = -177.0
+offset_bottom = -285.0
+value = 100.0
+nine_patch_stretch = true
+
+[node name="Player1HealthValue" type="Label" parent="HUD" unique_id=200962005]
+offset_left = -433.0
+offset_top = -318.0
+offset_right = -177.0
+offset_bottom = -292.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.04, 0.1, 0.2, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("10_game_font")
+theme_override_font_sizes/font_size = 16
+text = "100 / 100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Player2HealthLabel" type="Label" parent="HUD" unique_id=1707877092]
+offset_left = 224.0
+offset_top = -348.0
+offset_right = 480.0
+offset_bottom = -325.0
+theme_override_colors/font_color = Color(1, 0.45, 0.45, 1)
+theme_override_fonts/font = ExtResource("10_game_font")
+theme_override_font_sizes/font_size = 18
+text = "P2"
+horizontal_alignment = 1
+
+[node name="Player2Health" type="TextureProgressBar" parent="HUD" unique_id=870085499]
+material = SubResource("ShaderMaterial_health_red")
+offset_left = 223.0
+offset_top = -325.0
+offset_right = 479.0
+offset_bottom = -285.0
+value = 100.0
+fill_mode = 1
+nine_patch_stretch = true
+
+[node name="Player2HealthValue" type="Label" parent="HUD" unique_id=160606894]
+offset_left = 223.0
+offset_top = -318.0
+offset_right = 479.0
+offset_bottom = -292.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.2, 0.03, 0.03, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("10_game_font")
+theme_override_font_sizes/font_size = 16
+text = "100 / 100"
+horizontal_alignment = 1
+vertical_alignment = 1

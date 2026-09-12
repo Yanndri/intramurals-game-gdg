@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_game_manager"]
+[ext_resource type="PackedScene" path="res://scenes/main.tscn" id="2_round"]
+[ext_resource type="PackedScene" path="res://scenes/grassland_arena_1.tscn" id="3_grassland"]
+[ext_resource type="PackedScene" path="res://scenes/highlands_arena_2.tscn" id="4_highlands"]
+[ext_resource type="PackedScene" path="res://scenes/graveyard_arena_3.tscn" id="5_graveyard"]
+
+[node name="GameManager" type="Node"]
+script = ExtResource("1_game_manager")
+round_scene = ExtResource("2_round")
+arena_scenes = Array[PackedScene]([ExtResource("3_grassland"), ExtResource("4_highlands"), ExtResource("5_graveyard")])
+
+[node name="MatchHUD" type="CanvasLayer" parent="."]
+layer = 20
+
+[node name="MatchStatus" type="Label" parent="MatchHUD"]
+offset_left = 276.0
+offset_top = 16.0
+offset_right = 676.0
+offset_bottom = 70.0
+theme_override_colors/font_color = Color(1, 0.92, 0.55, 1)
+theme_override_colors/font_outline_color = Color(0.08, 0.05, 0.12, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1
+vertical_alignment = 1
