@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ymj7r4l0xdft"]
 
 [ext_resource type="PackedScene" uid="uid://rfwo5epexgfx" path="res://scenes/player.tscn" id="2_sugp2"]
-[ext_resource type="PackedScene" path="res://scenes/player2.tscn" id="3_player2"]
+[ext_resource type="PackedScene" uid="uid://bbq0j7orpbsxu" path="res://scenes/player2.tscn" id="3_player2"]
 [ext_resource type="Shader" uid="uid://bt5tjiqs1u2lq" path="res://shaders/player_color.gdshader" id="5_color_shader"]
 [ext_resource type="Script" uid="uid://2astyqfutmxa" path="res://scripts/main.gd" id="7_main_script"]
 [ext_resource type="FontFile" uid="uid://y427wmo3m62u" path="res://Assets/Game Font/BoldPixels.ttf" id="10_game_font"]

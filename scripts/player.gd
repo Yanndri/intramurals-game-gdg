@@ -9,6 +9,7 @@ const PLAYER_MASK := 0b1000
 const ALL_COLLISION_MASK := ALL_WORLD_MASK | PLAYER_MASK
 const DAMAGE_SLOW_TIME_SCALE := 0.2
 const DAMAGE_SLOW_DURATION_MSEC := 200
+const KATANA_ATTACK_ANIMATION: StringName = &"player_katana_continous_attack"
 
 static var damage_slow_until_msec := 0
 static var time_scale_before_damage_slow := 1.0
@@ -34,6 +35,7 @@ var was_on_floor := false
 var health := max_health
 var is_dead := false
 var equipped_gear: StringName = &""
+var katana_attack_time_left := 0.0
 var brawler_attack_time_left := 0.0
 var brawler_next_attack_is_cross := true
 var bullet_attack_time_left := 0.0
@@ -52,6 +54,8 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector2.ZERO
 		return
 
+	if katana_attack_time_left > 0.0:
+		katana_attack_time_left -= delta
 	if brawler_attack_time_left > 0.0:
 		brawler_attack_time_left -= delta
 	if bullet_attack_time_left > 0.0:
@@ -64,8 +68,10 @@ func _physics_process(delta: float) -> void:
 
 	var direction := Input.get_axis(input_prefix + "left", input_prefix + "right")
 	if Input.is_action_just_pressed("attack_" + input_prefix):
-		if equipped_gear == &"katana":
-			animation_player.play(&"player_katana_continous_attack")
+		if equipped_gear == &"katana" and not _is_katana_attack_active():
+			animation_player.play(KATANA_ATTACK_ANIMATION)
+			# Match the lock duration to the attack animation.
+			katana_attack_time_left = animation_player.get_animation(KATANA_ATTACK_ANIMATION).length
 			_deal_attack_damage(10, katana_attack_range)
 		elif equipped_gear == &"brawler" and brawler_attack_time_left <= 0.0:
 			var brawler_attack: StringName = &"player_punch_cross" if brawler_next_attack_is_cross else &"player_punch_jab"
@@ -159,6 +165,13 @@ func _deal_attack_damage(damage: int, attack_range: float) -> void:
 		closest_target.take_damage(damage)
 
 
+func _is_katana_attack_active() -> bool:
+	return katana_attack_time_left > 0.0 or (
+		animation_player.current_animation == KATANA_ATTACK_ANIMATION
+		and animation_player.is_playing()
+	)
+
+
 func grant_gear(gear_id: StringName) -> void:
 	equipped_gear = gear_id
 	if equipped_gear == &"katana":
@@ -176,7 +189,7 @@ func _update_animation(direction: float) -> void:
 	if animation_player.current_animation == &"player_hurt-damaged" and animation_player.is_playing():
 		return
 	# Do not replace the one-shot Katana attack while it is playing.
-	if animation_player.current_animation == &"player_katana_continous_attack" and animation_player.is_playing():
+	if animation_player.current_animation == KATANA_ATTACK_ANIMATION and animation_player.is_playing():
 		return
 	if brawler_attack_time_left > 0.0 and animation_player.current_animation in [&"player_punch_cross", &"player_punch_jab"]:
 		return
