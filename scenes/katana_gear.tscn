@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cpldb56ud1m5p"]
+[gd_scene format=3 uid="uid://cpldb56ud1m5p"]
 
 [ext_resource type="Texture2D" uid="uid://c2q88xxhiro6x" path="res://Assets/Item Assets/600+ RPGAdventure Items Asset Pack/Examples/ShowCaseItems.png" id="1_5w2mt"]
 [ext_resource type="Script" path="res://scripts/floating_gear.gd" id="2_floating_gear"]

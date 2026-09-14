@@ -52,6 +52,8 @@ func _physics_process(delta: float) -> void:
 	_update_damage_slow_motion()
 	if is_dead:
 		velocity = Vector2.ZERO
+		if $running.playing:
+			$running.stop()
 		return
 
 	if katana_attack_time_left > 0.0:
@@ -87,6 +89,7 @@ func _physics_process(delta: float) -> void:
 			bullet_attack_time_left = 1.0 if direction == 0.0 else 0.8
 			_deal_attack_damage(20, bullet_attack_range)
 		elif equipped_gear == &"sword" and sword_attack_time_left <= 0.0:
+			$slash.play()
 			animation_player.play(&"player_sword_attack")
 			sword_attack_time_left = 0.6
 			_deal_attack_damage(15, sword_attack_range)
@@ -95,6 +98,7 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_just_pressed(input_prefix + "forward") and is_on_floor():
 		velocity.y = jump_velocity
+		$jump.play()
 
 	# Only the layer-3 ray can initiate a drop. TileMap collision remains active.
 	if Input.is_action_just_pressed(input_prefix + "backward") and platform_detector.is_colliding():
@@ -106,6 +110,8 @@ func _physics_process(delta: float) -> void:
 		drop_through_time_left -= delta
 		if drop_through_time_left <= 0.0:
 			collision_mask = ALL_COLLISION_MASK
+
+	_update_run_sound(direction)
 
 	move_and_slide()
 	_update_animation(direction)
@@ -140,6 +146,14 @@ func _update_damage_slow_motion() -> void:
 	if damage_slow_until_msec > 0 and Time.get_ticks_msec() >= damage_slow_until_msec:
 		Engine.time_scale = time_scale_before_damage_slow
 		damage_slow_until_msec = 0
+
+
+func _update_run_sound(direction: float) -> void:
+	var should_be_running := direction != 0.0 and is_on_floor() and not is_dead
+	if should_be_running and not $running.playing:
+		$running.play()
+	elif not should_be_running and $running.playing:
+		$running.stop()
 
 
 func _deal_attack_damage(damage: int, attack_range: float) -> void:

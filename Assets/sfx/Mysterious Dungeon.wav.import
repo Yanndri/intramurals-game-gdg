@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://siptuychxx1r"
+path="res://.godot/imported/Mysterious Dungeon.wav-0633d9638dd2eb98e2596a9ae49c6639.sample"
+
+[deps]
+
+source_file="res://Assets/sfx/Mysterious Dungeon.wav"
+dest_files=["res://.godot/imported/Mysterious Dungeon.wav-0633d9638dd2eb98e2596a9ae49c6639.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

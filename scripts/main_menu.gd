@@ -11,6 +11,7 @@ func _ready() -> void:
 
 
 func _on_play_button_pressed() -> void:
+	$Center/MenuCard/Margin/Menu/PlayButton/click.play() #play click sound
 	if game_scene_path.is_empty() or not ResourceLoader.exists(game_scene_path):
 		status.text = "Set a gameplay scene on the Main Menu node to start the game."
 		return
@@ -20,3 +21,12 @@ func _on_play_button_pressed() -> void:
 
 func _on_exit_button_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_play_button_mouse_entered() -> void:
+	$Center/MenuCard/Margin/Menu/PlayButton/hover.play()# play hover
+
+
+func _on_exit_button_mouse_entered() -> void:
+	$Center/MenuCard/Margin/Menu/ExitButton/hover.play() # play hover
+	
