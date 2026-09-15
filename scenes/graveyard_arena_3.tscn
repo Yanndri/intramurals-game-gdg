@@ -507,9 +507,6 @@ tags = {
 
 [node name="Graveyard_Arena_3" type="Node2D" unique_id=730693493]
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1173116902]
-zoom = Vector2(1.51, 1.54)
-
 [node name="TileMap" type="TileMap" parent="." unique_id=691852925]
 tile_set = SubResource("TileSet_y26rt")
 format = 2

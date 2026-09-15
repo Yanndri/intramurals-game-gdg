@@ -869,11 +869,11 @@ position = Vector2(-277, 74)
 scale = Vector2(0.2, 0.2)
 
 [node name="BulletGear" parent="." unique_id=1444151374 instance=ExtResource("16_rq6dn")]
-position = Vector2(196.00002, 77)
+position = Vector2(-124.99999, -16.000002)
 scale = Vector2(0.2, 0.2)
 
 [node name="BulletGear2" parent="." unique_id=1298966835 instance=ExtResource("16_rq6dn")]
-position = Vector2(286, -25.000004)
+position = Vector2(17.00003, -95)
 scale = Vector2(0.2, 0.2)
 
 [node name="grasslandBGmusic" type="AudioStreamPlayer" parent="." unique_id=186820165]

@@ -5,6 +5,7 @@ extends Area2D
 ## effect; this component handles only its world presence and respawn cycle.
 @export_range(0.1, 300.0, 0.1, "suffix:s") var respawn_seconds := 60.0
 @export var gear_id: StringName = &""
+@export var knockback := 0.0
 @export var float_height := 6.0
 @export var float_speed := 2.5
 
@@ -38,7 +39,7 @@ func _on_body_entered(body: Node2D) -> void:
 
 	is_available = false
 	if gear_id != &"":
-		player.grant_gear(gear_id)
+		player.grant_gear(gear_id, knockback)
 	gear_collected.emit(player)
 	visible = false
 	set_deferred("monitoring", false)

@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cvq55gnei0py5"]
+
+[ext_resource type="Texture2D" uid="uid://b38y7n3vubkkq" path="res://Assets/Item Assets/600+ RPGAdventure Items Asset Pack/Armour/Chestplate/WithShadow/Chestplate20.png" id="1_y8tpm"]
+[ext_resource type="Script" uid="uid://dn00i332mmgsq" path="res://scripts/shield_parry.gd" id="2_shield_parry"]
+[ext_resource type="FontFile" uid="uid://y427wmo3m62u" path="res://Assets/Game Font/BoldPixels.ttf" id="3_svddc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7m20t"]
+font = ExtResource("3_svddc")
+font_color = Color(1, 1, 0, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Shield Parry" type="Node2D" unique_id=1904524796]
+z_index = 6
+script = ExtResource("2_shield_parry")
+
+[node name="Chestplate20" type="Sprite2D" parent="." unique_id=1855490889]
+scale = Vector2(3.1250002, 2.9375)
+texture = ExtResource("1_y8tpm")
+
+[node name="ParryLabel" type="Label" parent="." unique_id=428040623]
+offset_left = -28.0
+offset_top = -19.0
+offset_right = 28.0
+offset_bottom = 4.0
+theme_override_colors/font_color = Color(1, 0.9, 0.2, 1)
+theme_override_colors/font_outline_color = Color(0.1, 0.1, 0.1, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 18
+text = "PARRY!"
+label_settings = SubResource("LabelSettings_7m20t")
+horizontal_alignment = 1

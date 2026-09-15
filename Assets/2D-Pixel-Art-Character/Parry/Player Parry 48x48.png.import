@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4w4bs8v8msb4"
-path="res://.godot/imported/dash.png-4aeb2f49a951d857dcd32e6107ce3d6b.ctex"
+uid="uid://djutfa6uyc1bq"
+path="res://.godot/imported/Player Parry 48x48.png-867912dda8382859edad18c6700cae93.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/2D-Pixel-Art-Character/Dash/dash.png"
-dest_files=["res://.godot/imported/dash.png-4aeb2f49a951d857dcd32e6107ce3d6b.ctex"]
+source_file="res://Assets/2D-Pixel-Art-Character/Parry/Player Parry 48x48.png"
+dest_files=["res://.godot/imported/Player Parry 48x48.png-867912dda8382859edad18c6700cae93.ctex"]
 
 [params]
 

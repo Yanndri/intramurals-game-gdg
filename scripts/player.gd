@@ -7,9 +7,17 @@ const STATIC_PLATFORM_MASK := 0b100
 const ALL_WORLD_MASK := TILEMAP_MASK | STATIC_PLATFORM_MASK
 const PLAYER_MASK := 0b1000
 const ALL_COLLISION_MASK := ALL_WORLD_MASK | PLAYER_MASK
-const DAMAGE_SLOW_TIME_SCALE := 0.2
-const DAMAGE_SLOW_DURATION_MSEC := 200
+const DAMAGE_SLOW_TIME_SCALE := 0.7
+const DAMAGE_SLOW_DURATION_MSEC := 400
 const KATANA_ATTACK_ANIMATION: StringName = &"player_katana_continous_attack"
+const KNOCKBACK_SPEED_PER_POINT := 100.0
+const PARRY_DURATION := 0.7
+const PARRY_KNOCKBACK := 7.0
+const SHIELD_PARRY_SCENE := preload("res://scenes/shield_parry.tscn")
+const DASH_DURATION := 0.2
+const DASH_COOLDOWN := 5.0
+const DASH_DISTANCE := 120.0
+const DASH_ANIMATION: StringName = &"player_dash"
 
 static var damage_slow_until_msec := 0
 static var time_scale_before_damage_slow := 1.0
@@ -22,12 +30,13 @@ static var time_scale_before_damage_slow := 1.0
 @export_group("Combat")
 @export var brawler_attack_range := 50.0
 @export var bullet_attack_range := 55.0
-@export var katana_attack_range := 58.0
-@export var sword_attack_range := 64.0
+@export var katana_attack_range := 50.0
+@export var sword_attack_range := 40.0
 
 @onready var platform_detector: RayCast2D = $PlatformDetector
 @onready var sprite_model: Sprite2D = $SpriteModel
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var dash_cooldown_label: Label = $DashCooldownLabel
 
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 var drop_through_time_left := 0.0
@@ -35,10 +44,15 @@ var was_on_floor := false
 var health := max_health
 var is_dead := false
 var equipped_gear: StringName = &""
+var equipped_knockback := 0.0
+var parry_time_left := 0.0
+var dash_time_left := 0.0
+var dash_cooldown_left := 0.0
+var dash_direction := 1.0
 var katana_attack_time_left := 0.0
 var brawler_attack_time_left := 0.0
 var brawler_next_attack_is_cross := true
-var bullet_attack_time_left := 0.0
+var bullet_attack_time_left := 2.0
 var sword_attack_time_left := 0.0
 
 signal health_changed(current_health: int, maximum_health: int)
@@ -52,6 +66,7 @@ func _play_double_slash() -> void:
 
 func _ready() -> void:
 	add_to_group("players")
+	_update_dash_indicator()
 
 
 func _physics_process(delta: float) -> void:
@@ -70,42 +85,58 @@ func _physics_process(delta: float) -> void:
 		bullet_attack_time_left -= delta
 	if sword_attack_time_left > 0.0:
 		sword_attack_time_left -= delta
+	if parry_time_left > 0.0:
+		parry_time_left -= delta
+	if dash_time_left > 0.0:
+		dash_time_left -= delta
+		if dash_time_left <= 0.0:
+			_update_collision_state()
+	if dash_cooldown_left > 0.0:
+		dash_cooldown_left = maxf(dash_cooldown_left - delta, 0.0)
+	_update_dash_indicator()
 
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
 	var direction := Input.get_axis(input_prefix + "left", input_prefix + "right")
-	if Input.is_action_just_pressed("attack_" + input_prefix):
+	if Input.is_action_just_pressed("dash_" + input_prefix) and dash_cooldown_left <= 0.0:
+		_start_dash(direction)
+	elif Input.is_action_just_pressed("parry_" + input_prefix):
+		_start_parry()
+	elif Input.is_action_just_pressed("attack_" + input_prefix):
 		if equipped_gear == &"katana" and not _is_katana_attack_active():
 			_play_double_slash()
 			animation_player.play(KATANA_ATTACK_ANIMATION)
 			# Match the lock duration to the attack animation.
 			katana_attack_time_left = animation_player.get_animation(KATANA_ATTACK_ANIMATION).length
-			_deal_attack_damage(10, katana_attack_range)
+			_deal_attack_damage(10, katana_attack_range, equipped_knockback)
 		elif equipped_gear == &"brawler" and brawler_attack_time_left <= 0.0:
 			var brawler_attack: StringName = &"player_punch_cross" if brawler_next_attack_is_cross else &"player_punch_jab"
 			$punch.pitch_scale = randf_range(0.9, 1.1)
 			$punch.play()
-			animation_player.play(brawler_attack)
+			animation_player.play(brawler_attack, -1.0, 1.5)
 			brawler_next_attack_is_cross = not brawler_next_attack_is_cross
-			brawler_attack_time_left = 0.7
-			_deal_attack_damage(10, brawler_attack_range)
+			brawler_attack_time_left = 0.7 / 1.5
+			_deal_attack_damage(10, brawler_attack_range, equipped_knockback)
 		elif equipped_gear == &"bullet" and bullet_attack_time_left <= 0.0:
 			# Both players use their own attack action after picking up Bullet
 			# gear: shoot while moving, or use the two-handed shot while still.
 			var bullet_attack: StringName = &"player_shooting_running" if direction != 0.0 else &"player_shooting_two_handed"
 			$gunshot.play()
 			animation_player.play(bullet_attack)
-			bullet_attack_time_left = 1.0 if direction == 0.0 else 0.8
-			_deal_attack_damage(20, bullet_attack_range)
+			bullet_attack_time_left = 1.5 if direction == 0.0 else 1.2
+			_deal_attack_damage(20, bullet_attack_range, equipped_knockback)
 		elif equipped_gear == &"sword" and sword_attack_time_left <= 0.0:
 			$slash.pitch_scale = randf_range(0.9, 1.1)
 			$slash.play()
 			animation_player.play(&"player_sword_attack")
 			sword_attack_time_left = 0.6
-			_deal_attack_damage(15, sword_attack_range)
+			_deal_attack_damage(15, sword_attack_range, equipped_knockback)
 
-	velocity.x = move_toward(velocity.x, direction * move_speed, move_speed * 8.0 * delta)
+	if dash_time_left > 0.0:
+		velocity.x = dash_direction * DASH_DISTANCE / DASH_DURATION
+	else:
+		velocity.x = move_toward(velocity.x, direction * move_speed, move_speed * 8.0 * delta)
 
 	if Input.is_action_just_pressed(input_prefix + "forward") and is_on_floor():
 		velocity.y = jump_velocity
@@ -114,13 +145,13 @@ func _physics_process(delta: float) -> void:
 	# Only the layer-3 ray can initiate a drop. TileMap collision remains active.
 	if Input.is_action_just_pressed(input_prefix + "backward") and platform_detector.is_colliding():
 		drop_through_time_left = drop_through_duration
-		collision_mask = TILEMAP_MASK
+		_update_collision_state()
 		velocity.y = maxf(velocity.y, 30.0)
 
 	if drop_through_time_left > 0.0:
 		drop_through_time_left -= delta
 		if drop_through_time_left <= 0.0:
-			collision_mask = ALL_COLLISION_MASK
+			_update_collision_state()
 
 	_update_run_sound(direction)
 
@@ -169,7 +200,35 @@ func _update_run_sound(direction: float) -> void:
 		$running.stop()
 
 
-func _deal_attack_damage(damage: int, attack_range: float) -> void:
+func _start_dash(input_direction: float) -> void:
+	if is_dead:
+		return
+	dash_direction = input_direction if input_direction != 0.0 else (-1.0 if sprite_model.flip_h else 1.0)
+	sprite_model.flip_h = dash_direction < 0.0
+	dash_time_left = DASH_DURATION
+	dash_cooldown_left = DASH_COOLDOWN
+	_update_collision_state()
+	animation_player.play(DASH_ANIMATION, -1.0, animation_player.get_animation(DASH_ANIMATION).length / DASH_DURATION)
+	$dash.play()
+
+
+func _update_collision_state() -> void:
+	collision_layer = 0 if dash_time_left > 0.0 else PLAYER_MASK
+	collision_mask = TILEMAP_MASK
+	if drop_through_time_left <= 0.0:
+		collision_mask |= STATIC_PLATFORM_MASK
+	if dash_time_left <= 0.0:
+		collision_mask |= PLAYER_MASK
+
+
+func _update_dash_indicator() -> void:
+	if dash_cooldown_left > 0.0:
+		dash_cooldown_label.text = "DASH: %.1fs" % dash_cooldown_left
+	else:
+		dash_cooldown_label.text = "DASH: READY"
+
+
+func _deal_attack_damage(damage: int, attack_range: float, knockback: float) -> void:
 	var facing_direction := -1.0 if sprite_model.flip_h else 1.0
 	var closest_target: TestPlayer
 	var closest_distance := INF
@@ -189,7 +248,40 @@ func _deal_attack_damage(damage: int, attack_range: float) -> void:
 			closest_distance = distance
 
 	if closest_target != null:
+		if closest_target.try_parry(self):
+			return
 		closest_target.take_damage(damage)
+		closest_target.apply_knockback(facing_direction, knockback)
+
+
+func apply_knockback(direction: float, strength: float) -> void:
+	if strength <= 0.0 or is_dead:
+		return
+	velocity.x = direction * strength * KNOCKBACK_SPEED_PER_POINT
+
+
+func _start_parry() -> void:
+	if is_dead:
+		return
+	parry_time_left = PARRY_DURATION
+	animation_player.play(&"player_parry")
+
+
+func try_parry(attacker: TestPlayer) -> bool:
+	if parry_time_left <= 0.0 or is_dead:
+		return false
+
+	$parry.play()
+	var attacker_direction := signf(attacker.global_position.x - global_position.x)
+	attacker.apply_knockback(attacker_direction if attacker_direction != 0.0 else 1.0, PARRY_KNOCKBACK)
+	_spawn_parry_effect()
+	return true
+
+
+func _spawn_parry_effect() -> void:
+	var effect := SHIELD_PARRY_SCENE.instantiate() as Node2D
+	add_child(effect)
+	effect.position = Vector2.ZERO
 
 
 func _is_katana_attack_active() -> bool:
@@ -199,8 +291,9 @@ func _is_katana_attack_active() -> bool:
 	)
 
 
-func grant_gear(gear_id: StringName) -> void:
+func grant_gear(gear_id: StringName, knockback := 0.0) -> void:
 	equipped_gear = gear_id
+	equipped_knockback = knockback
 	if equipped_gear == &"katana":
 		animation_player.play(&"player_katana_idle")
 	elif equipped_gear == &"brawler":
@@ -213,6 +306,10 @@ func grant_gear(gear_id: StringName) -> void:
 
 
 func _update_animation(direction: float) -> void:
+	if dash_time_left > 0.0:
+		return
+	if parry_time_left > 0.0:
+		return
 	if animation_player.current_animation == &"player_hurt-damaged" and animation_player.is_playing():
 		return
 	# Do not replace the one-shot Katana attack while it is playing.

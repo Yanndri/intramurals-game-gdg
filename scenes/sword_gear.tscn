@@ -12,6 +12,7 @@ collision_mask = 8
 script = ExtResource("2_floating_gear")
 respawn_seconds = 60.0
 gear_id = &"sword"
+knockback = 7.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1314973774]
 texture = ExtResource("1_ee0os")

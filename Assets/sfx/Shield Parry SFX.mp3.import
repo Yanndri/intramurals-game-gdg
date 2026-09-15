@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c76f6owfblif"
+path="res://.godot/imported/Shield Parry SFX.mp3-490e0d37ff35c07b71d86230031fc62c.mp3str"
+
+[deps]
+
+source_file="res://Assets/sfx/Shield Parry SFX.mp3"
+dest_files=["res://.godot/imported/Shield Parry SFX.mp3-490e0d37ff35c07b71d86230031fc62c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

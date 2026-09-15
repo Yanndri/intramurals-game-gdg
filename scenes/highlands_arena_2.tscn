@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://qy2k6bvylie7" path="res://scenes/brawler_gear.tscn" id="6_8veof"]
 [ext_resource type="PackedScene" uid="uid://gjf6spbvwv8i" path="res://scenes/bullet_gear.tscn" id="7_yn4fd"]
 [ext_resource type="Script" uid="uid://s2fiaj5l8wef" path="res://scripts/instant_death_zone.gd" id="8_bottom_death"]
+[ext_resource type="Texture2D" uid="uid://dlb5d6gndt6qy" path="res://Assets/Item Assets/600+ RPGAdventure Items Asset Pack/Other/WithShadow/Bones1.png" id="9_yyrck"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kqr71"]
 texture = ExtResource("4_sgpgu")
@@ -772,7 +773,7 @@ position = Vector2(-227, -51.999996)
 scale = Vector2(0.2, 0.2)
 
 [node name="BrawlerGear4" parent="." unique_id=793171057 instance=ExtResource("6_8veof")]
-position = Vector2(171, -171)
+position = Vector2(171, -164)
 scale = Vector2(0.2, 0.2)
 
 [node name="BulletGear3" parent="." unique_id=1444151374 instance=ExtResource("7_yn4fd")]
@@ -780,10 +781,62 @@ position = Vector2(-299, -124.000015)
 scale = Vector2(0.2, 0.2)
 
 [node name="BulletGear4" parent="." unique_id=323527917 instance=ExtResource("7_yn4fd")]
-position = Vector2(157, 159.99998)
+position = Vector2(293, -86.999985)
 scale = Vector2(0.2, 0.2)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1549403354]
 stream = SubResource("AudioStreamWAV_kqr71")
 volume_db = -20.0
 autoplay = true
+
+[node name="BoneWarning" type="Sprite2D" parent="." unique_id=726173869]
+
+[node name="Bones1" type="Sprite2D" parent="BoneWarning" unique_id=2140524378]
+position = Vector2(-178, 134)
+texture = ExtResource("9_yyrck")
+
+[node name="Bones2" type="Sprite2D" parent="BoneWarning" unique_id=1055725409]
+position = Vector2(-178, 134)
+texture = ExtResource("9_yyrck")
+flip_h = true
+
+[node name="Bones3" type="Sprite2D" parent="BoneWarning" unique_id=981780113]
+position = Vector2(-178.00002, 148.99998)
+rotation = 0.7720217
+texture = ExtResource("9_yyrck")
+
+[node name="Bones4" type="Sprite2D" parent="BoneWarning" unique_id=23310911]
+position = Vector2(-182, 153)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("9_yyrck")
+
+[node name="Bones5" type="Sprite2D" parent="BoneWarning" unique_id=2055423713]
+position = Vector2(-174, 153)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("9_yyrck")
+flip_h = true
+
+[node name="Bones6" type="Sprite2D" parent="BoneWarning" unique_id=1370353401]
+position = Vector2(103.31271, 99)
+texture = ExtResource("9_yyrck")
+
+[node name="Bones7" type="Sprite2D" parent="BoneWarning" unique_id=1073695366]
+position = Vector2(103.31271, 99)
+texture = ExtResource("9_yyrck")
+flip_h = true
+
+[node name="Bones8" type="Sprite2D" parent="BoneWarning" unique_id=359849676]
+position = Vector2(103.3127, 113.999985)
+rotation = 0.7720217
+texture = ExtResource("9_yyrck")
+
+[node name="Bones9" type="Sprite2D" parent="BoneWarning" unique_id=377097872]
+position = Vector2(99.31269, 118)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("9_yyrck")
+
+[node name="Bones10" type="Sprite2D" parent="BoneWarning" unique_id=1373906685]
+position = Vector2(107.31269, 118)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("9_yyrck")
+flip_h = true

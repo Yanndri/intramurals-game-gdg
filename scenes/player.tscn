@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cu01nwimdwx5j" path="res://scripts/player.gd" id="1_script"]
 [ext_resource type="Shader" uid="uid://bt5tjiqs1u2lq" path="res://shaders/player_color.gdshader" id="2_shader"]
 [ext_resource type="Texture2D" uid="uid://bidjyo6jw2vve" path="res://Assets/2D-Pixel-Art-Character/Katana Attack-Sheathe/player katana attack-sheathe 80x64.png" id="3_texture"]
-[ext_resource type="Texture2D" uid="uid://b5wpagr8labi0" path="res://Assets/2D-Pixel-Art-Character/Dash/dash.png" id="4_3v2ag"]
+[ext_resource type="Texture2D" uid="uid://b4w4bs8v8msb4" path="res://Assets/2D-Pixel-Art-Character/Dash/dash.png" id="4_3v2ag"]
 [ext_resource type="Texture2D" uid="uid://c08ljwr33kl0v" path="res://Assets/2D-Pixel-Art-Character/Air Spin/player air spin 48x48.png" id="4_60mlk"]
 [ext_resource type="Texture2D" uid="uid://b34uswt12ksrq" path="res://Assets/2D-Pixel-Art-Character/Idle/Player Idle 48x48.png" id="4_dqkch"]
 [ext_resource type="Texture2D" uid="uid://bt1dm5n84c03n" path="res://Assets/2D-Pixel-Art-Character/Walk/PlayerWalk 48x48.png" id="4_walk"]
@@ -37,6 +37,11 @@
 [ext_resource type="Texture2D" uid="uid://hsqghvity6m1" path="res://Assets/2D-Pixel-Art-Character/4 Sword/Sword Run/Player Sword Run 48x48.png" id="32_giy8y"]
 [ext_resource type="Texture2D" uid="uid://bg144nwfwf7ao" path="res://Assets/2D-Pixel-Art-Character/Wall Land/player wall land 48x48.png" id="35_hhpqf"]
 [ext_resource type="Texture2D" uid="uid://b50sc44pt7e1" path="res://Assets/2D-Pixel-Art-Character/Wall Slide/player wall slide 48x48.png" id="36_g5jhy"]
+[ext_resource type="AudioStream" uid="uid://cfk72uj5qiqtx" path="res://Assets/sfx/damage.mp3" id="37_damage_mp3"]
+[ext_resource type="Texture2D" uid="uid://djutfa6uyc1bq" path="res://Assets/2D-Pixel-Art-Character/Parry/Player Parry 48x48.png" id="38_parry_texture"]
+[ext_resource type="AudioStream" uid="uid://c76f6owfblif" path="res://Assets/sfx/Shield Parry SFX.mp3" id="39_parry_sound"]
+[ext_resource type="AudioStream" uid="uid://beioihmu46jhp" path="res://Assets/sfx/Dash Sound Effect.mp3" id="40_dash_sound"]
+[ext_resource type="FontFile" uid="uid://y427wmo3m62u" path="res://Assets/Game Font/BoldPixels.ttf" id="41_giy8y"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_player_color"]
 shader = ExtResource("2_shader")
@@ -998,6 +1003,58 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_parry"]
+resource_name = "player_parry"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteModel:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("38_parry_texture")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteModel:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [10]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteModel:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SpriteModel:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.14, 0.21, 0.28, 0.35, 0.42, 0.49, 0.56, 0.63),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 }
 
 [sub_resource type="Animation" id="Animation_t4otl"]
@@ -2031,6 +2088,7 @@ _data = {
 &"player_katana_run": SubResource("Animation_bj30b"),
 &"player_land": SubResource("Animation_a38lo"),
 &"player_ledge_grab": SubResource("Animation_jc3p3"),
+&"player_parry": SubResource("Animation_parry"),
 &"player_pull": SubResource("Animation_t4otl"),
 &"player_punch": SubResource("Animation_4ni07"),
 &"player_punch_cross": SubResource("Animation_l71n6"),
@@ -2088,20 +2146,11 @@ loop_end = 2290
 mix_rate = 32000
 stereo = true
 
-[sub_resource type="AudioStreamWAV" id="AudioStreamWAV_giy8y"]
-data = PackedByteArray("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")
-format = 3
-loop_begin = 1
-loop_end = 2400
-mix_rate = 32000
-stereo = true
-tags = {
-"album": "[Sound Effect] Minecraft Damage",
-"artist": "Sound Effects",
-"date": "2025",
-"genre": "Music",
-"title": "[Sound Effect] Minecraft Damage"
-}
+[sub_resource type="LabelSettings" id="LabelSettings_8veof"]
+font = ExtResource("41_giy8y")
+font_color = Color(1, 1, 0, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Player" type="CharacterBody2D" unique_id=982433373]
 collision_layer = 8
@@ -2146,6 +2195,26 @@ volume_db = -5.0
 stream = SubResource("AudioStreamWAV_cs1tg")
 volume_db = -5.0
 
+[node name="parry" type="AudioStreamPlayer" parent="." unique_id=422255914]
+stream = ExtResource("39_parry_sound")
+
+[node name="dash" type="AudioStreamPlayer" parent="." unique_id=613863513]
+stream = ExtResource("40_dash_sound")
+
+[node name="DashCooldownLabel" type="Label" parent="." unique_id=1138065213]
+z_index = 6
+offset_left = -24.0
+offset_top = -21.0
+offset_right = 66.0
+offset_bottom = -3.0
+scale = Vector2(0.5600029, 0.6000012)
+theme_override_colors/font_color = Color(0.55, 0.85, 1, 1)
+theme_override_colors/font_outline_color = Color(0.05, 0.1, 0.18, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 11
+text = "DASH: READY"
+label_settings = SubResource("LabelSettings_8veof")
+horizontal_alignment = 1
+
 [node name="damage" type="AudioStreamPlayer" parent="." unique_id=1086324133]
-stream = SubResource("AudioStreamWAV_giy8y")
-volume_db = -10.0
+stream = ExtResource("37_damage_mp3")
