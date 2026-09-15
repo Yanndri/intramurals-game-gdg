@@ -1,9 +1,11 @@
 class_name GameManager
 extends Node
 
-## Runs a best-of-three match. A player receives a point only when the other
-## player's health reaches zero while they are still alive.
-const TOTAL_ROUNDS := 3
+## Runs a best-of-five match. A player wins the match by winning 3 rounds;
+## a player receives a round point only when the other player's health
+## reaches zero while they are still alive.
+const TOTAL_ROUNDS := 5
+const WINS_NEEDED := 3
 
 @export var round_scene: PackedScene
 @export var arena_scenes: Array[PackedScene] = []
@@ -38,7 +40,11 @@ func _start_next_round() -> void:
 	var player2: TestPlayer = active_round.get_node("Player2")
 	player1.health_changed.connect(_on_player_health_changed)
 	player2.health_changed.connect(_on_player_health_changed)
-	_update_match_status("ROUND %d / %d" % [current_round, TOTAL_ROUNDS])
+
+	if player_scores[0] == WINS_NEEDED - 1 and player_scores[1] == WINS_NEEDED - 1:
+		_update_match_status("FINAL ROUND")
+	else:
+		_update_match_status("ROUND %d" % current_round)
 
 
 func _install_next_arena() -> void:
@@ -86,7 +92,8 @@ func _finish_round(winning_player: int) -> void:
 
 	await get_tree().create_timer(round_transition_delay).timeout
 	active_round.queue_free()
-	if current_round == TOTAL_ROUNDS:
+
+	if player_scores[0] >= WINS_NEEDED or player_scores[1] >= WINS_NEEDED or current_round == TOTAL_ROUNDS:
 		_show_match_result()
 	else:
 		_start_next_round()
@@ -98,6 +105,7 @@ func _show_match_result() -> void:
 	else:
 		var winner := 1 if player_scores[0] > player_scores[1] else 2
 		_update_match_status("PLAYER %d WINS THE MATCH\nP1 %d  -  %d P2" % [winner, player_scores[0], player_scores[1]])
+		$winBGmusic.play()
 
 
 func _update_match_status(message: String) -> void:

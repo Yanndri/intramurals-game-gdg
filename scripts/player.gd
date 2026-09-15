@@ -43,6 +43,12 @@ var sword_attack_time_left := 0.0
 
 signal health_changed(current_health: int, maximum_health: int)
 
+func _play_double_slash() -> void:
+	$slash.pitch_scale = randf_range(0.9, 1.1)
+	$slash.play()
+	await get_tree().create_timer(0.35).timeout
+	$slash.pitch_scale = randf_range(0.9, 1.1)
+	$slash.play()
 
 func _ready() -> void:
 	add_to_group("players")
@@ -71,12 +77,15 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis(input_prefix + "left", input_prefix + "right")
 	if Input.is_action_just_pressed("attack_" + input_prefix):
 		if equipped_gear == &"katana" and not _is_katana_attack_active():
+			_play_double_slash()
 			animation_player.play(KATANA_ATTACK_ANIMATION)
 			# Match the lock duration to the attack animation.
 			katana_attack_time_left = animation_player.get_animation(KATANA_ATTACK_ANIMATION).length
 			_deal_attack_damage(10, katana_attack_range)
 		elif equipped_gear == &"brawler" and brawler_attack_time_left <= 0.0:
 			var brawler_attack: StringName = &"player_punch_cross" if brawler_next_attack_is_cross else &"player_punch_jab"
+			$punch.pitch_scale = randf_range(0.9, 1.1)
+			$punch.play()
 			animation_player.play(brawler_attack)
 			brawler_next_attack_is_cross = not brawler_next_attack_is_cross
 			brawler_attack_time_left = 0.7
@@ -85,10 +94,12 @@ func _physics_process(delta: float) -> void:
 			# Both players use their own attack action after picking up Bullet
 			# gear: shoot while moving, or use the two-handed shot while still.
 			var bullet_attack: StringName = &"player_shooting_running" if direction != 0.0 else &"player_shooting_two_handed"
+			$gunshot.play()
 			animation_player.play(bullet_attack)
 			bullet_attack_time_left = 1.0 if direction == 0.0 else 0.8
 			_deal_attack_damage(20, bullet_attack_range)
 		elif equipped_gear == &"sword" and sword_attack_time_left <= 0.0:
+			$slash.pitch_scale = randf_range(0.9, 1.1)
 			$slash.play()
 			animation_player.play(&"player_sword_attack")
 			sword_attack_time_left = 0.6
@@ -124,6 +135,8 @@ func take_damage(amount: int) -> void:
 
 	health = maxi(health - amount, 0)
 	print("%s took %d damage. Health: %d/%d" % [name, amount, health, max_health])
+	$damage.pitch_scale = randf_range(0.9, 1.1)
+	$damage.play()
 	if health == 0:
 		is_dead = true
 		velocity = Vector2.ZERO
